@@ -1,4 +1,4 @@
-"""Particle object module for Py-Climber"""
+"""Particle object module for Progmind"""
 import pygame
 
 class Particle():

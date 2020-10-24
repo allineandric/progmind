@@ -2,7 +2,7 @@
 import pygame.freetype
 
 class Settings():
-    """A class to store all settings for progmind."""
+    """A class to store all settings for Progmind."""
 
     def __init__(self):
         """Initialize the game's settings."""

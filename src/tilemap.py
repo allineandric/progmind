@@ -1,4 +1,4 @@
-"""This module implements a 2D tilemap for Py-Climber"""
+"""This module implements a 2D tilemap for Progmind"""
 from src.player import Player
 from src.block import Block
 from src.blob_exit import BlobExit

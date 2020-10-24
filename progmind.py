@@ -1,4 +1,4 @@
-"""This module is the main entry for the Py-Climber game"""
+"""This module is the main entry for the Progmind game"""
 
 import src.game_functions as gf
 from src.image_resources import ImageResources
@@ -8,7 +8,7 @@ import random
 import pygame
 
 def run_game():
-    """Main entry point for Py-Climber"""
+    """Main entry point for Progmind"""
 
     # Startup pygame object
     pygame.init()

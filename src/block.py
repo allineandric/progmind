@@ -1,4 +1,4 @@
-"""This module implements the platform block object (sprite) for Py-Climber"""
+"""This module implements the platform block object (sprite) for Progmind"""
 import pygame
 from pygame.sprite import Sprite
 

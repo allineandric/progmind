@@ -1,4 +1,4 @@
-"""This module implements the player object (sprite) for Py-Climber"""
+"""This module implements the player object (sprite) for Progmind"""
 
 from src.animation import Animation
 from src.animated_sprite import AnimatedSprite

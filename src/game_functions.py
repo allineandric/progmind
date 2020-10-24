@@ -1,4 +1,4 @@
-"""This module implements standard game functions for Py-Climber, such as processing keypresses"""
+"""This module implements standard game functions for Progmind, such as processing keypresses"""
 
 import sys
 import random
