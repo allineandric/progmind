@@ -1,8 +1,8 @@
-"""This module implements settings for Py-Climber."""
+"""This module implements settings for Progmind."""
 import pygame.freetype
 
 class Settings():
-    """A class to store all settings for pyclimber."""
+    """A class to store all settings for progmind."""
 
     def __init__(self):
         """Initialize the game's settings."""
@@ -10,7 +10,7 @@ class Settings():
         # screen settings
         self.screen_width = 800
         self.screen_height = 600
-        self.caption = "Py-Climber"
+        self.caption = "Progmind"
         self.bg_color = (26, 23, 22)
         self.color_key = (255, 0, 255)
         self.fullscreen = False
