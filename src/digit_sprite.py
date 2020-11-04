@@ -1,5 +1,6 @@
 """This module implements a sprite that represents a single digit 0-9"""
 from src.flyin_sprite import FlyInSprite
+from src.settings import Settings
 
 class DigitSprite(FlyInSprite):
     """Digit sprite object which can also flyin to position"""
@@ -34,6 +35,7 @@ class DigitSprite(FlyInSprite):
         carry = False
         if self.image_index < 9:
             self.image_index += 1
+            Settings.level_number += 1 # Incrementa 1 na variável global de level sempre que o jogador sobe de level
         else:
             self.image_index = 0
             carry = True

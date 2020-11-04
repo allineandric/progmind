@@ -1,4 +1,4 @@
-"""Particle generator for Py-Climber"""
+"""Particle generator for Progmind"""
 from src.particle import Particle
 import random
 

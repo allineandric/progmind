@@ -1,4 +1,4 @@
-"""This module caches images for the Py-Climber game"""
+"""This module caches images for the Progmind game"""
 
 import pygame
 

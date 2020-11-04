@@ -1,4 +1,4 @@
-"""This module is the main entry for the Py-Climber game"""
+"""This module is the main entry for the Progmind game"""
 
 import src.game_functions as gf
 from src.image_resources import ImageResources
@@ -8,7 +8,7 @@ import random
 import pygame
 
 def run_game():
-    """Main entry point for Py-Climber"""
+    """Main entry point for Progmind"""
 
     # Startup pygame object
     pygame.init()
@@ -48,7 +48,7 @@ def run_game():
         gf.check_events(settings, screen, tile_map)
 
         # Update the game (this will update all sub-object and render them to the screen)
-        gf.update_screen(settings, screen, tile_map)
+        gf.update_screen(settings, screen, tile_map, Settings.level_number)
     
 # Invokes the function above when the script is run
 run_game()

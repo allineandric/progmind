@@ -1,4 +1,4 @@
-"""This module implements sprite animations for Py-Climber"""
+"""This module implements sprite animations for Progmind"""
 
 class Animation():
     """Implements animation logic for sprites, this is really just a list of ints - simple"""

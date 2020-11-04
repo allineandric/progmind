@@ -1,4 +1,4 @@
-"""This module implements a shared subclass for animated sprites for Py-Climber"""
+"""This module implements a shared subclass for animated sprites for Progmind"""
 
 import pygame
 from pygame.sprite import Sprite

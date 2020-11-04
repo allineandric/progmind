@@ -1,4 +1,4 @@
-"""This module implements the enemy blob type for Py-Climber"""
+"""This module implements the enemy blob type for Progmind"""
 
 import pygame
 from pygame.sprite import Sprite

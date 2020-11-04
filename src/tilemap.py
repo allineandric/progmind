@@ -1,4 +1,4 @@
-"""This module implements a 2D tilemap for Py-Climber"""
+"""This module implements a 2D tilemap for Progmind"""
 from src.player import Player
 from src.block import Block
 from src.blob_exit import BlobExit
@@ -25,11 +25,12 @@ class Tilemap():
         self.block_group = Group()
         self.x_offset = 0
         self.drainrect = pygame.Rect((0,0), (0,0))
-        self.blob_exit = None
+        # self.blob_exit - > Vilões do jogo, todos métodos relacionados estão comentados
+        # self.blob_exit = None
         self.exit_images = exit_images
         self.player = None
         self.player_images = player_images
-        self.blob_images = blob_images
+        # self.blob_images = blob_images
         self.enemies = Group()
         self.new_enemy_counter = 0
         self.level_info = LevelInfo(self.settings, self.screen)
@@ -40,9 +41,9 @@ class Tilemap():
         """Resets the game to the starting state"""
         self.player.reset()
         self.enemies.empty()
-        gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
+        # gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
         self.generate_platforms()
-        self.blob_exit.stop_gibbing()
+        # self.blob_exit.stop_gibbing()
         self.level_info = LevelInfo(self.settings, self.screen)
         self.settings.enemy_generation_rate = self.settings.enemy_generation_base_rate
         self.level_timer.reset()
@@ -53,11 +54,14 @@ class Tilemap():
         # So just make number_of_floors - 1 entries for those, then generate the bottom 'floor'
         # which just has a different 3rd row of indices.  If tiles below that are needed for
         # looks then they all use the same pattern
+
+        #region ALTERADO Cada código se refere a uma posição da imagem e cada coluna referencia a coluna no layout do jogo
         empty_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
-        pipe_row = [-1, 6, 15, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 16, 8, -1]
-        bottom_row = [-1, 6, 9,  1,  1,  1,  1,  5, 1,  1,  1,  1,  1, 10, 8, -1]
-        sub_row = [-1, 6, 7,  7,  7,  7,  8,  -1,  6,  7,  7,  7,  7, 7, 8, -1]
+        pipe_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
+        bottom_row = [-1, 6, 9,  1,  1,  1,  1,  1, 1,  1,  1,  1,  1, 10, 8, -1]
+        sub_row = [-1, 6, 9,  4,  4,  4,  4,  4, 4,  4,  4,  4,  4, 10, 8, -1]
         drain_col = 7
+        #endregion
 
         row_index = 0
         new_indices = []
@@ -102,7 +106,7 @@ class Tilemap():
         self.drainrect.move_ip(0, self.settings.tile_height * -0.5)
 
         # Create the 'exit'
-        self.blob_exit = BlobExit(self.settings, self.screen, self.exit_images, self)
+        # self.blob_exit = BlobExit(self.settings, self.screen, self.exit_images, self)
 
         # Create the player
         self.player = Player(self.settings, self.screen, self.player_images, self.player_bounds_rect, self)
@@ -128,13 +132,13 @@ class Tilemap():
 
         # The bottom 2 are optional and random
         # Note these offsets work because the blocks are 1/4 the size of the tile by design
-        if bottom_left:
-            block_bottom_left = self.generate_block(bounding_rect.left, bounding_rect.top + image_rect.height)
-            group.add(block_bottom_left)
+        # if bottom_left:
+        block_bottom_left = self.generate_block(bounding_rect.left, bounding_rect.top + image_rect.height)
+        group.add(block_bottom_left)
 
-        if bottom_right:
-            block_bottom_right = self.generate_block(bounding_rect.left + image_rect.width, bounding_rect.top + image_rect.height)
-            group.add(block_bottom_right)
+        # if bottom_right:
+        block_bottom_right = self.generate_block(bounding_rect.left + image_rect.width, bounding_rect.top + image_rect.height)
+        group.add(block_bottom_right)
 
     def generate_platforms(self):
         """Make groups of sprites that contain the blocks for the player to stand on"""
@@ -164,7 +168,7 @@ class Tilemap():
             # Each row is its own group.  This could limit collision checks later
             self.block_group.add(new_group.sprites())
             # Shif the bounding rect down one floor
-            row_rect = row_rect.move(0, self.settings.tile_height * 3)
+            row_rect = row_rect.move(0, self.settings.tile_height * 6) # ALTERADA A tile_height DE 3 PARA 6
 
     def update(self):
         """Update all owned objects (blocks, player, enemies, etc)"""
@@ -175,9 +179,9 @@ class Tilemap():
         if self.player.won_level:
             self.player.reset()
             self.enemies.empty()
-            gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
+            # gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
             self.generate_platforms()
-            self.blob_exit.stop_gibbing()
+            # self.blob_exit.stop_gibbing()
             self.level_info.increase_level()
             self.settings.enemy_generation_rate -= self.settings.enemy_generation_level_rate
             self.level_timer.reset()
@@ -189,14 +193,14 @@ class Tilemap():
         self.new_enemy_counter += 1
         if self.new_enemy_counter >= self.settings.enemy_generation_rate:
             self.new_enemy_counter = 0
-            gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
+            # gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
 
         # Update enemies that exist
         for enemy in self.enemies:
             enemy.update(self)
 
         # Update the 'exit' sprite
-        self.blob_exit.update(self.enemies)
+        # self.blob_exit.update(self.enemies)
 
         # Update the level info
         self.level_info.update()
@@ -251,7 +255,7 @@ class Tilemap():
         self.player.draw()
 
         # Draw the exit
-        self.blob_exit.draw()
+        # self.blob_exit.draw()
 
         # Draw the level info
         self.level_info.draw()

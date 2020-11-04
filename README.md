@@ -1,5 +1,5 @@
-# Py-Climber
-**_Py-Climber_** is a simple game written as a learning project for Python using the pygame module.  It is **_vaguely_** inspired by the game Ice-Climber for the NES.  I am not new to programming, but I am a neophyte when it comes to python.  This means while I've tried to embrace the python way of doing things, I probably regressed in places due to old habits in other languages.
+# Progmind
+**_Progmind_** is a simple game written as a learning project for Python using the pygame module.  It is **_vaguely_** inspired by the game Ice-Climber for the NES.  I am not new to programming, but I am a neophyte when it comes to python.  This means while I've tried to embrace the python way of doing things, I probably regressed in places due to old habits in other languages.
 
 **Objective:** Reach the top level by breaking blocks from beneath, then jumping on top.  Avoid the green blob enemies which will send you back to the bottom.  The player can kill blobs when they are on blocks destroyed by the player.
 
@@ -11,13 +11,13 @@
 You will need the pygame and python 3.6 installed, as well as the images from my repository (e.g. .\\images\\*) wherever you copy the scripts.  Cloning the repository is the easiest method, or download the whole thing.  I don't have a lot of "extra" stuff in the repo
 
 ```
-python pyclimber.py
+python progmind.py
 ```
 
 ## File Descriptions
 Each file contains only one class, or a collection of related functions.  The brief overview of each is listed below.
 
-### pyclimber.py
+### progmind.py
 This is the main entry point for the game.  It creates the top level objects and contains the main game loop.  Start here if you want to trace through execution via code inspection or the debugger.
 
 ### game_functions.py
@@ -48,7 +48,7 @@ The simplest of animated sprites, it only has 3 modes: walking left, walking rig
 A more complex animated sprite.  The player has more animations, reacts to input from the user, and must interact with the block objects to both destroy (from the bottom) or stand on (from the top).
 
 ### particle.py
-A simple class representing a single particle.  For Py-Climber, this is a filled 2D rect of a given color.
+A simple class representing a single particle.  For Progmind, this is a filled 2D rect of a given color.
 
 ### particle_generator.py
 The ParticleGenerator class is responsible for creating and tracking Particle objects.  A calling object may specify a callback to customize the particles generated, e.g. their velocities and color.
