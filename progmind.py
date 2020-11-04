@@ -48,7 +48,7 @@ def run_game():
         gf.check_events(settings, screen, tile_map)
 
         # Update the game (this will update all sub-object and render them to the screen)
-        gf.update_screen(settings, screen, tile_map)
+        gf.update_screen(settings, screen, tile_map, Settings.level_number)
     
 # Invokes the function above when the script is run
 run_game()

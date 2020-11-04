@@ -30,7 +30,7 @@ class Tilemap():
         self.exit_images = exit_images
         self.player = None
         self.player_images = player_images
-    #   self.blob_images = blob_images
+        # self.blob_images = blob_images
         self.enemies = Group()
         self.new_enemy_counter = 0
         self.level_info = LevelInfo(self.settings, self.screen)
@@ -168,7 +168,7 @@ class Tilemap():
             # Each row is its own group.  This could limit collision checks later
             self.block_group.add(new_group.sprites())
             # Shif the bounding rect down one floor
-            row_rect = row_rect.move(0, self.settings.tile_height * 3)
+            row_rect = row_rect.move(0, self.settings.tile_height * 6) # ALTERADA A tile_height DE 3 PARA 6
 
     def update(self):
         """Update all owned objects (blocks, player, enemies, etc)"""

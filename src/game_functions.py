@@ -100,36 +100,38 @@ def generate_new_random_blob(settings, screen, images, tile_map):
     # Add it to the list
     tile_map.enemies.add(enemy)
     
-def blit_help_text(settings, screen):
+def blit_help_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
     y = screen.get_rect().bottom - 48
     font = settings.font
-    font.render_to(screen, (10,y), "ESC to exit", settings.font_color)
-    y -= 20
-    font.render_to(screen, (10,y), "F9 to toggle fullscreen", settings.font_color)
-    y -= 20
-    font.render_to(screen, (10,y), "'a' to add a new enemy", settings.font_color)
-    y -= 20
-    font.render_to(screen, (10,y), "'r' to reset", settings.font_color)
-    y -= 20
-    font.render_to(screen, (15,y), "...can jump once in air", settings.font_color)
-    y -= 20
-    font.render_to(screen, (10,y), "SPACE to jump", settings.font_color)
-    y -= 20
-    font.render_to(screen, (10,y), "LEFT/RIGHT arrows to walk", settings.font_color)
+    if level == 1:
+        y -= 120
+        font.render_to(screen, (10,y), "Teste Level 1", settings.font_color)
+    if level == 2:
+        y -= 120
+        font.render_to(screen, (10,y), "Teste Level 2", settings.font_color)
+    if level == 3:
+        y -= 120
+        font.render_to(screen, (10,y), "Teste Level 3", settings.font_color)
+    if level == 4:
+        y -= 120
+        font.render_to(screen, (10,y), "Teste Level 4", settings.font_color)
+    if level == 5:
+        y -= 120
+        font.render_to(screen, (10,y), "Teste Level 5", settings.font_color)
     
 def update_game_objects(settings, tile_map):
     tile_map.update()
 
-def draw_game_objects(settings, screen, tile_map):
+def draw_game_objects(settings, screen, tile_map, level):
     # Draw the map - pass True to render a grid overlay on the tiles
     tile_map.draw()
 
     # Draw help text
-    blit_help_text(settings, screen)
+    blit_help_text(settings, screen, level)
 
-def update_screen(settings, screen, tile_map):
+def update_screen(settings, screen, tile_map, level):
     """Update images and flip screen"""
     # Redraw screen each pass
     screen.fill(settings.bg_color)
@@ -138,7 +140,7 @@ def update_screen(settings, screen, tile_map):
     update_game_objects(settings, tile_map)
 
     # DRAWS...
-    draw_game_objects(settings, screen, tile_map)
+    draw_game_objects(settings, screen, tile_map, level)
 
     # FLIP....
     pygame.display.flip()
