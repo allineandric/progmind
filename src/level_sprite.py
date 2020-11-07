@@ -7,4 +7,4 @@ class LevelSprite(FlyInSprite):
     def __init__(self, settings, screen):
         """Init the sprite"""
         super().__init__(settings, screen, settings.image_res.level_image)
-        self.set_start_position(self.screen_rect.bottom, self.screen_rect.left + self.settings.tile_width, 0, -20, 20)
+        self.set_start_position(self.screen_rect.bottom, self.screen_rect.left + self.settings.tile_width, 0, -20, 28)

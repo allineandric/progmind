@@ -34,7 +34,7 @@ class Tilemap():
         self.enemies = Group()
         self.new_enemy_counter = 0
         self.level_info = LevelInfo(self.settings, self.screen)
-        self.level_timer = LevelTimer(self.settings, self.screen)
+        # self.level_timer = LevelTimer(self.settings, self.screen)
         self.bonuses = []
         
     def reset(self):
@@ -46,7 +46,7 @@ class Tilemap():
         # self.blob_exit.stop_gibbing()
         self.level_info = LevelInfo(self.settings, self.screen)
         self.settings.enemy_generation_rate = self.settings.enemy_generation_base_rate
-        self.level_timer.reset()
+        # self.level_timer.reset()
 
     def generate_basic_map(self, number_of_floors, number_of_subfloor_rows=0):
         """Builds a basic tiled map - this depends on the index ordering of the tiles image"""
@@ -112,7 +112,7 @@ class Tilemap():
         self.player = Player(self.settings, self.screen, self.player_images, self.player_bounds_rect, self)
 
         # Position the timer
-        self.level_timer.position_frame(self.screen_rect.centery, self.player_bounds_rect.right + self.settings.tile_width * 2)
+        # self.level_timer.position_frame(self.screen_rect.centery, self.player_bounds_rect.right + self.settings.tile_width * 2)
 
     def generate_block(self, x, y):
         """Create a new Block object at the given x,y and return it"""
@@ -172,8 +172,8 @@ class Tilemap():
 
     def update(self):
         """Update all owned objects (blocks, player, enemies, etc)"""
-        if self.player.at_top:
-            self.level_timer.stop()
+        # if self.player.at_top:
+            # self.level_timer.stop()
 
         # Check for a reset flag set on the player object
         if self.player.won_level:
@@ -184,7 +184,7 @@ class Tilemap():
             # self.blob_exit.stop_gibbing()
             self.level_info.increase_level()
             self.settings.enemy_generation_rate -= self.settings.enemy_generation_level_rate
-            self.level_timer.reset()
+            # self.level_timer.reset()
 
         # Update the player
         self.player.update(self, self.enemies)
@@ -206,7 +206,7 @@ class Tilemap():
         self.level_info.update()
 
         # Update the level timer
-        self.level_timer.update()
+        # self.level_timer.update()
 
         # bonuses
         for bonus in self.bonuses:
@@ -261,7 +261,7 @@ class Tilemap():
         self.level_info.draw()
 
         # Draw the level timer
-        self.level_timer.draw()
+        # self.level_timer.draw()
 
         # Draw bonuses
         for bonus in self.bonuses:

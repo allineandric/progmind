@@ -9,7 +9,7 @@ class Settings():
         """Initialize the game's settings."""
         
         # screen settings
-        self.screen_width = 800
+        self.screen_width = 1255
         self.screen_height = 600
         self.caption = "Progmind" # ALTERADO O NOME DO JOGO PARA PROGMIND
         self.bg_color = (36, 35, 92) # ALTERADA A COR DE FUNDO DO JOGO
