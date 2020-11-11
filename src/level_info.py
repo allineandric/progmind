@@ -15,10 +15,10 @@ class LevelInfo():
         self.level_sprite = LevelSprite(self.settings, self.screen)
         # 10s digit
         self.digit_tens = DigitSprite(self.settings, self.screen, self.settings.image_res.digit_images, 0)
-        self.digit_tens.set_start_position(self.screen_rect.top - 64, self.screen_rect.left + self.settings.tile_width, 0, 15, 22)
+        self.digit_tens.set_start_position(self.screen_rect.top - 178, self.screen_rect.left + 180 + self.settings.tile_width, 0, 10, 22)
         # 1s digit
         self.digit_ones = DigitSprite(self.settings, self.screen, self.settings.image_res.digit_images, 1)
-        self.digit_ones.set_start_position(self.screen_rect.top + self.screen_rect.height/2 - 35, self.screen_rect.right, -37, 0, 20)
+        self.digit_ones.set_start_position(self.screen_rect.top - 178, self.screen_rect.left + 220 + self.settings.tile_width, 0, 10, 22)
 
     def update(self):
         """Update all owned sprites"""
