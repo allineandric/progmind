@@ -12,7 +12,7 @@ class Settings():
         self.screen_width = 1255
         self.screen_height = 600
         self.caption = "Progmind" # ALTERADO O NOME DO JOGO PARA PROGMIND
-        self.bg_color = (0, 145, 244) # ALTERADA A COR DE FUNDO DO JOGO
+        self.bg_color = (36, 35, 92) # ALTERADA A COR DE FUNDO DO JOGO
         self.color_key = (255, 0, 255)
         self.fullscreen = False
 
@@ -30,9 +30,9 @@ class Settings():
         # Player sprite settings
         self.player_width = 24
         self.player_height = 32
-        self.player_jump_velocity = -20 # ALTERADA A VELOCIDADE DO PULO DE -15 PARA -25
+        self.player_jump_velocity = -30 # ALTERADA A VELOCIDADE DO PULO DE -15 PARA -25
         self.player_air_jump_velocity = -8
-        self.player_max_air_jumps = 1
+        self.player_max_air_jumps = 500
         self.player_dx = 4 # ALTERADA A VELOCIDADE DE 2 PARA 4
 
         # transparent pixels to offset for horizontal collision (image dependent)
