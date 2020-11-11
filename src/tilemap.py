@@ -58,7 +58,7 @@ class Tilemap():
         #region ALTERADO Cada código se refere a uma posição da imagem e cada coluna referencia a coluna no layout do jogo
         empty_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
         pipe_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
-        bottom_row = [-1, 6, 9,  1,  1,  1,  1,  1, 1,  1,  1,  1,  1, 10, 8, -1]
+        bottom_row = [-1, 6, 9,  1,  1,  1,  1, 1, 17,  1,  1,  1,  1, 10, 8, -1]
         sub_row = [-1, 6, 9,  4,  4,  4,  4,  4, 4,  4,  4,  4,  4, 10, 8, -1]
         drain_col = 7
         #endregion
