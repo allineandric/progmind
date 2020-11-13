@@ -34,7 +34,7 @@ class Tilemap():
         self.enemies = Group()
         self.new_enemy_counter = 0
         self.level_info = LevelInfo(self.settings, self.screen)
-        # self.level_timer = LevelTimer(self.settings, self.screen)
+        self.level_timer = LevelTimer(self.settings, self.screen)
         self.bonuses = []
         
     def reset(self):
@@ -58,9 +58,9 @@ class Tilemap():
         #region ALTERADO Cada código se refere a uma posição da imagem e cada coluna referencia a coluna no layout do jogo
         empty_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
         pipe_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
-        bottom_row = [-1, 6, 9,  1,  1,  1,  1, 1, 17,  1,  1,  1,  1, 10, 8, -1]
+        bottom_row = [-1, 6, 9,  17,  1,  1,  1, 1, 1,  1,  1,  1,  17, 10, 8, -1]
         sub_row = [-1, 6, 9,  4,  4,  4,  4,  4, 4,  4,  4,  4,  4, 10, 8, -1]
-        drain_col = 7
+        drain_col = 3
         #endregion
 
         row_index = 0
@@ -112,7 +112,7 @@ class Tilemap():
         self.player = Player(self.settings, self.screen, self.player_images, self.player_bounds_rect, self)
 
         # Position the timer
-        # self.level_timer.position_frame(self.screen_rect.centery, self.player_bounds_rect.right + self.settings.tile_width * 2)
+        self.level_timer.position_frame(self.screen_rect.centery, self.player_bounds_rect.right + self.settings.tile_width * 2)
 
     def generate_block(self, x, y):
         """Create a new Block object at the given x,y and return it"""
@@ -159,7 +159,7 @@ class Tilemap():
             # Note - there are more permutations, these are just the ones allowed
             # OO OO OO OO
             # XX OX OX OO
-            for col in range(0, self.settings.map_playable_width):
+            for col in range(1, 9): # ALTERADO O DE range(0, self.settings.map_playable_width)
                 bounding_rect = pygame.Rect(0, 0, 0,0)
                 bounding_rect.top = row_rect.top
                 bounding_rect.left = row_rect.left + col * self.settings.tile_width

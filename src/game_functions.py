@@ -44,6 +44,11 @@ def check_keydown_events(settings, event, screen, tile_map):
             if player.dx == 0.0:
                 player.dx = settings.player_dx
                 player.facing_left = False
+    
+    if event.key == pygame.K_DOWN:
+        if not player.idle_top:
+            if player.falling == False:
+                player.dy += 50
         
     if event.key == pygame.K_F9:
         if settings.fullscreen == True:
@@ -105,240 +110,234 @@ def blit_help_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
     font = settings.font
-    if level == 1:  
-        y = screen.get_rect().bottom - 98      
-        font.render_to(screen, (10,y), "desta expressão: 4 ? 5 = 20 ", settings.font_color) 
+    if level == 1:
+        y = screen.get_rect().bottom - 98
+        font.render_to(screen, (10,y), "desta expressão: 4 ? 5 = 20 ", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "Quebre a caixa que possui o simbolo do operador", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-     
-        y -= 50   
+
+        y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (10,y), "Adição (+)   Subtração (-)   Multiplicação (*)   Divisão(/)", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "simbologia em todas as linguagens de programação", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "Em algoritmos eles também são simples e têm a mesma ", settings.font_color)
-        y -= 40        
+        y -= 40
         font.render_to(screen, (10,y), "chavamaos de expressões aritméticas.", settings.font_color)
-        y -= 30        
-        font.render_to(screen, (10,y), "continhas de soma, subtração, multiplicação e divisão", settings.font_color) 
+        y -= 30
+        font.render_to(screen, (10,y), "continhas de soma, subtração, multiplicação e divisão", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "Nos primeiros anos de estudo aprendemos a fazer  ", settings.font_color)
         y -= 40
-        font.render_to(screen, (10,y), "EXPRESSÕES ARITMÉTICA", settings.font_color)
-        
-        y = screen.get_rect().bottom - 158          
-        y -= 110       
+        font.render_to(screen, (10,y), "EXPRESSÕES ARITMÉTICAS", settings.font_color)
+
+        y = screen.get_rect().bottom - 158
+        y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20      
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no minimo", settings.font_color)
-        y -= 50   
+        y -= 20
+        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
-     
+
     if level == 2:
-        y = screen.get_rect().bottom - 98      
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y = screen.get_rect().bottom - 98
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-     
-        y -= 50   
+        y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40        
+        y -= 40
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30        
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y -= 30
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "EXPRESSÕES RELACIONAIS", settings.font_color)
-        
-        y = screen.get_rect().bottom - 158          
-        y -= 110       
+
+        y = screen.get_rect().bottom - 158
+        y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20      
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no minimo", settings.font_color)
-        y -= 50   
+        y -= 20
+        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
-    
+
     if level == 3:
-        y = screen.get_rect().bottom - 98      
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y = screen.get_rect().bottom - 98
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-     
-        y -= 50   
+        y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40        
+        y -= 40
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30        
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y -= 30
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "OPERAÇÕES COM CADEIAS DE CARACTERES", settings.font_color)
-        
-        y = screen.get_rect().bottom - 158          
-        y -= 110       
+
+        y = screen.get_rect().bottom - 158
+        y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20      
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no minimo", settings.font_color)
-        y -= 50   
+        y -= 20
+        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
-  
+
     if level == 4:
-        y = screen.get_rect().bottom - 98      
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y = screen.get_rect().bottom - 98
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-     
-        y -= 50   
+        y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40        
+        y -= 40
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30        
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y -= 30
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "EXPRESSÕES LÓGICAS", settings.font_color)
-        
-        y = screen.get_rect().bottom - 158          
-        y -= 110       
+
+        y = screen.get_rect().bottom - 158
+        y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20      
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no minimo", settings.font_color)
-        y -= 50   
+        y -= 20
+        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
 
     if level == 5:
-        y = screen.get_rect().bottom - 98      
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y = screen.get_rect().bottom - 98
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-     
-        y -= 50   
+        y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40        
+        y -= 40
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30        
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y -= 30
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "ESTRUTURA DE REPETIÇÃO", settings.font_color)
-        
-        y = screen.get_rect().bottom - 158          
-        y -= 110       
+
+        y = screen.get_rect().bottom - 158
+        y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20      
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no minimo", settings.font_color)
-        y -= 50   
+        y -= 20
+        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
 
     if level == 6:
-        y = screen.get_rect().bottom - 98      
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y = screen.get_rect().bottom - 98
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-     
-        y -= 50   
+        y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30   
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30      
+        y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40        
+        y -= 40
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30        
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color) 
+        y -= 30
+        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 30
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "ESTRUTURA DE DECISÃO", settings.font_color)
-        
-        y = screen.get_rect().bottom - 158          
-        y -= 110       
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20      
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no minimo", settings.font_color)
-        y -= 50   
-        font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30   
-        font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30      
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30      
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
 
+        y = screen.get_rect().bottom - 158
+        y -= 110
+        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        y -= 50
+        font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
 
 def update_game_objects(settings, tile_map):
     tile_map.update()

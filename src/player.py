@@ -169,15 +169,14 @@ class Player(AnimatedSprite):
                 self.rect.bottom = block.rect.top
             # If the player is jumping, check for a lower hit
             elif self.dy < 0:
-                if self.rect.bottom > block.rect.bottom:
+                """ if self.rect.bottom > block.rect.bottom:
                     self.dy = 0
                     self.rect.top = block.rect.bottom - self.settings.player_sprite_top_margin
                     # remove blocks struck from the bottom
                     group.remove(collision_list)
 
                     # remove enemies above those blocks
-                    self.remove_enemies_above_blocks(collision_list)
-
+                    self.remove_enemies_above_blocks(collision_list) """
             # Now check the left
             elif self.dx > 0:
                 if side_collision:
