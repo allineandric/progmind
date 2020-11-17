@@ -151,30 +151,31 @@ def blit_help_text(settings, screen, level):
 
     if level == 2:
         y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "3 = 4", settings.font_color)
+        
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "Arraste a caixa correta de acordo com o operador", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
         y -= 50
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "expressões aritméticas", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "As expressões relacionais podem conter ", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "(ou seja, True ou False)", settings.font_color)
         y -= 40
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "Esse dois valores são chamados de valores booleanos", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "resultado pode ser False (falso) ou True (verdadeiro) ", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "Operadores relacionais comparam dois valores e o ", settings.font_color)
         y -= 40
         font.render_to(screen, (10,y), "EXPRESSÕES RELACIONAIS", settings.font_color)
 
         y = screen.get_rect().bottom - 158
-        y -= 110
+        y -= 30
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
         y -= 20
         font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
@@ -182,34 +183,52 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30
+        y -= 40
         font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30
+        y -= 20
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
+        y -= 60
+        font.render_to(screen, (800,y), "<>(ou !=)             Diferente", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "     >=                    Maior ou igual", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "     <=                    Menor ou igual", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "     >                      Maior", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "     <                      Menor", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "= (ou ==)             Igual", settings.font_color)
+        y -= 30
+        font.render_to(screen, (800,y), "Operador           Função", settings.font_color)
 
     if level == 3:
         y = screen.get_rect().bottom - 98
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
+        y -= 20
         font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
+        y -= 30
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-        y -= 50
+        y -= 40
         font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "variáveis do tipo booleano, ou seja, com valor VERDADEIRO(V) ou FALSO(F).", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "string, ou seja, cadeia de caracteres.  - logico: define ", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "com casas decimais.  - caractere: define variáveis do tipo", settings.font_color)
+        y -= 30
+        font.render_to(screen, (10,y), " - real: define variáveis numéricas do tipo real, ou seja,", settings.font_color)
+        y -= 30
+        font.render_to(screen, (10,y), "numéricas do tipo inteiro, ou seja, sem casas decimais.", settings.font_color)
         y -= 40
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "(ou booleano). Sendo eles:  - inteiro: define variáveis", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "de dados: inteiro, real, cadeia de caracteres e lógico", settings.font_color)
         y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
+        font.render_to(screen, (10,y), "Na ciência da computação existem quatro tipos primitivos", settings.font_color)
         y -= 40
-        font.render_to(screen, (10,y), "OPERAÇÕES COM CADEIAS DE CARACTERES", settings.font_color)
+        font.render_to(screen, (10,y), "TIPOS DE DADOS", settings.font_color)
 
         y = screen.get_rect().bottom - 158
         y -= 110
