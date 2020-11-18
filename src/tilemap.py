@@ -1,6 +1,7 @@
 """This module implements a 2D tilemap for Progmind"""
 from src.player import Player
 from src.block import Block
+from src.box import Box
 from src.blob_exit import BlobExit
 from src.level_info import LevelInfo
 from src.level_timer import LevelTimer
@@ -13,7 +14,7 @@ import pygame
 class Tilemap():
     """Represents a collection of tile (sprites) that represent a map"""
 
-    def __init__(self, settings, screen, map_indicies, images, block_image, exit_images, player_images, blob_images):
+    def __init__(self, settings, screen, map_indicies, images, block_image, box_image, exit_images, player_images, blob_images):
         """Initialize the map and all of its owned objects"""
         self.settings = settings
         self.screen = screen
@@ -23,6 +24,7 @@ class Tilemap():
         self.player_bounds_rect = pygame.Rect((0,0), (0,0))
         self.block_image = block_image
         self.block_group = Group()
+        self.box_image = box_image
         self.x_offset = 0
         self.drainrect = pygame.Rect((0,0), (0,0))
         # self.blob_exit - > Vilões do jogo, todos métodos relacionados estão comentados
@@ -123,22 +125,30 @@ class Tilemap():
 
     def generate_blocks(self, bounding_rect, group, bottom_left=False, bottom_right=False):
         """Generates one of 4 possible block combinations"""
-        # Always add the top 2 quadrants
+        # Always add all the 4 quadrants
         image_rect = self.block_image.get_rect()
         block_top_left = self.generate_block(bounding_rect.left, bounding_rect.top)
         block_top_right = self.generate_block(bounding_rect.left + image_rect.width, bounding_rect.top)
+        block_bottom_left = self.generate_block(bounding_rect.left, bounding_rect.top + image_rect.height)
+        block_bottom_right = self.generate_block(bounding_rect.left + image_rect.width, bounding_rect.top + image_rect.height)
         group.add(block_top_left)
         group.add(block_top_right)
-
-        # The bottom 2 are optional and random
-        # Note these offsets work because the blocks are 1/4 the size of the tile by design
-        # if bottom_left:
-        block_bottom_left = self.generate_block(bounding_rect.left, bounding_rect.top + image_rect.height)
         group.add(block_bottom_left)
-
-        # if bottom_right:
-        block_bottom_right = self.generate_block(bounding_rect.left + image_rect.width, bounding_rect.top + image_rect.height)
         group.add(block_bottom_right)
+
+    def generate_box(self, x, y):
+        """Create a new box object at the given x,y and return it"""
+        new_box = Box(self.settings, self.screen, self.box_image)
+        new_box.rect.top = y
+        new_box.rect.left = x
+        return new_box
+
+    def generate_boxes(self, bounding_rect, group, bottom_left=False, bottom_right=False):
+        """Generates one of 8 possible box combinations"""
+        # Always add all the 4 quadrants
+        image_rect = self.box_image.get_rect()
+        box_top_left = self.generate_box(bounding_rect.left, bounding_rect.top)
+        group.add(box_top_left)
 
     def generate_platforms(self):
         """Make groups of sprites that contain the blocks for the player to stand on"""
@@ -148,9 +158,8 @@ class Tilemap():
         # Find each "row" of tiles that can contain blocks and add some
         # Eligible rows are every 3rd row starting from the 2nd to top, except the very bottom floor
         row_rect = pygame.Rect((self.player_bounds_rect.left, self.player_bounds_rect.top + (self.settings.tile_height * 2)), 
-            (self.player_bounds_rect.width, self.settings.tile_width)) 
-        
-        
+            (self.player_bounds_rect.width, self.settings.tile_width))
+
         self.block_group.empty()
         for row in range(0, (self.settings.map_number_floors-1)):
             new_group = Group()
@@ -160,10 +169,17 @@ class Tilemap():
             # OO OO OO OO
             # XX OX OX OO
             for col in range(1, 9): # ALTERADO O DE range(0, self.settings.map_playable_width)
-                bounding_rect = pygame.Rect(0, 0, 0,0)
+                bounding_rect = pygame.Rect(0, 0, 0, 0)
                 bounding_rect.top = row_rect.top
                 bounding_rect.left = row_rect.left + col * self.settings.tile_width
                 self.generate_blocks(bounding_rect, new_group, random.choice([True, False]), random.choice([True, False]))
+
+            # Método criado para colocar as caixas na tela
+            for col in range(0, 6, 5):
+                bounding_rect = pygame.Rect(0, 0, 0, 0)
+                bounding_rect.top = row_rect.top - 24 # -24 pois são dois blocos à frente
+                bounding_rect.left = (row_rect.left + col * self.settings.tile_width) + 48 # +48 pois são dois blocos acima
+                self.generate_boxes(bounding_rect, new_group, random.choice([True, False]), random.choice([True, False]))
             
             # Each row is its own group.  This could limit collision checks later
             self.block_group.add(new_group.sprites())

@@ -27,7 +27,7 @@ def run_game():
     
     # Create a 2D tilemap - this takes a list of indices and an image list to produce a tiled surface
     tile_map = Tilemap(settings, screen, settings.map_indicies, image_res.tile_images, 
-        image_res.block_image, image_res.blob_exit_images, image_res.player_sprite_images, image_res.enemy_blob_images)
+        image_res.block_image, image_res.box_image, image_res.blob_exit_images, image_res.player_sprite_images, image_res.enemy_blob_images)
 
     # Overwrite default indices with generated map 
     tile_map.generate_basic_map(settings.map_number_floors , settings.map_number_subfloors)

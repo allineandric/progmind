@@ -28,6 +28,10 @@ class ImageResources():
         self.block_image = pygame.image.load('images/block.bmp')
         self.block_image.set_colorkey(self.settings.color_key)
 
+        # Load the box image
+        self.box_image = pygame.image.load('images/box.bmp')
+        self.box_image.set_colorkey(self.settings.color_key)
+
         # Load the exit sprite (blade)
         self.blob_exit_images = []
         exit_images = self.blob_exit_images
