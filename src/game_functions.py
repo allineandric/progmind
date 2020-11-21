@@ -110,6 +110,7 @@ def blit_help_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
     font = settings.font
+
     if level == 1:
         y = screen.get_rect().bottom - 98
         font.render_to(screen, (10,y), "desta expressão: 4 ? 5 = 20 ", settings.font_color)
@@ -358,6 +359,23 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
 
+    
+def response_text(settings, screen, level):
+    """Draws the text explaining what keys do what"""
+    color_white = (255, 255, 255)
+    font = settings.font   
+        
+    font.render_to(screen, ( settings.resposta_1_X, settings.resposta_1_Y), settings.resposta_1, settings.font_color)
+    font.render_to(screen, ( settings.resposta_2_X, settings.resposta_2_Y), settings.resposta_2, settings.font_color)
+    font.render_to(screen, ( settings.resposta_3_X, settings.resposta_3_Y), settings.resposta_3, settings.font_color)
+    font.render_to(screen, ( settings.resposta_4_X, settings.resposta_4_Y), settings.resposta_4, settings.font_color)
+    font.render_to(screen, ( settings.resposta_5_X, settings.resposta_5_Y), settings.resposta_5, settings.font_color)
+    font.render_to(screen, ( settings.resposta_6_X, settings.resposta_6_Y), settings.resposta_6, settings.font_color)
+    font.render_to(screen, ( settings.resposta_7_X, settings.resposta_7_Y), settings.resposta_7, settings.font_color)
+    font.render_to(screen, ( settings.resposta_8_X, settings.resposta_8_Y), settings.resposta_8, settings.font_color)
+
+
+
 def update_game_objects(settings, tile_map):
     tile_map.update()
 
@@ -367,6 +385,8 @@ def draw_game_objects(settings, screen, tile_map, level):
 
     # Draw help text
     blit_help_text(settings, screen, level)
+    
+    response_text(settings, screen, level)
 
 def update_screen(settings, screen, tile_map, level):
     """Update images and flip screen"""

@@ -1,4 +1,4 @@
-"""This module implements a 2D tilemap for Progmind"""
+"" "Este módulo implementa um mapa de blocos 2D para o Progmind" ""
 from src.player import Player
 from src.block import Block
 from src.box import Box
@@ -12,10 +12,10 @@ from pygame.sprite import Group
 import pygame
 
 class Tilemap():
-    """Represents a collection of tile (sprites) that represent a map"""
+    """Representa uma coleção de blocos (sprites) que representam um mapa"""
 
     def __init__(self, settings, screen, map_indicies, images, block_image, box_image, exit_images, player_images, blob_images):
-        """Initialize the map and all of its owned objects"""
+        """Inicialize o mapa e todos os seus objetos de propriedade"""
         self.settings = settings
         self.screen = screen
         self.images = images
@@ -40,7 +40,7 @@ class Tilemap():
         self.bonuses = []
         
     def reset(self):
-        """Resets the game to the starting state"""
+        """Reinicia o jogo ao estado inicial"""
         self.player.reset()
         self.enemies.empty()
         # gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
@@ -51,11 +51,11 @@ class Tilemap():
         # self.level_timer.reset()
 
     def generate_basic_map(self, number_of_floors, number_of_subfloor_rows=0):
-        """Builds a basic tiled map - this depends on the index ordering of the tiles image"""
-        # Every 'floor' that is not the bottom or below contains 3 tile rows of the same pattern
-        # So just make number_of_floors - 1 entries for those, then generate the bottom 'floor'
-        # which just has a different 3rd row of indices.  If tiles below that are needed for
-        # looks then they all use the same pattern
+        """Constrói um mapa de blocos básico - isso depende da ordem do índice da imagem dos blocos"""
+        # Cada 'piso' que não seja o fundo ou abaixo contém 3 filas de ladrilhos do mesmo padrão
+        # Portanto, basta fazer number_of_floors - 1 entradas para aqueles, em seguida, gerar o 'andar' inferior
+        # que tem apenas uma 3ª linha de índices diferente. Se os blocos abaixo deles forem necessários para
+        # parece que todos usam o mesmo padrão
 
         #region ALTERADO Cada código se refere a uma posição da imagem e cada coluna referencia a coluna no layout do jogo
         empty_row = [-1, 6, 8, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 6, 8, -1]
@@ -73,25 +73,25 @@ class Tilemap():
             new_indices.extend(empty_row)
             row_index += 1
 
-        # bottom floor - no enemy generator
+        #piso inferior - sem gerador inimigo
         new_indices.extend(empty_row)
         new_indices.extend(empty_row)
         new_indices.extend(bottom_row)
 
-        # optional sub-bottom floor row
+        # linha opcional do piso inferior
         row_index = 0
         while row_index < number_of_subfloor_rows:
             new_indices.extend(sub_row)
             row_index += 1
 
-        # Out with the old, in with the new
+        # Fora com o velho, com o novo
         self.indicies.clear()
         self.indicies.extend(new_indices)
 
-        # Add the block platforms
-        self.generate_platforms()
+        # Adicione as plataformas de bloco
+        # self.generate_platforms()
 
-        # Calculate the rect that bounds outer movment of the player (and enemies in most cases)
+        #Calcule o retângulo que limita o movimento externo do jogador (e inimigos na maioria dos casos)
         self.x_offset = (self.screen_rect.width - (self.settings.map_width * self.settings.tile_width)) // 2
         x_offset2 = self.x_offset + self.settings.tile_width * ((self.settings.map_width - self.settings.map_playable_width)/2)
         self.player_bounds_rect.top = 0
@@ -99,7 +99,7 @@ class Tilemap():
         self.player_bounds_rect.width = self.settings.map_playable_width * self.settings.tile_width
         self.player_bounds_rect.height = self.screen_rect.height - ((number_of_subfloor_rows + 1) * self.settings.tile_height)
 
-        # Drain collision rect
+        # Drenar colisão rect
         self.drainrect.width = self.settings.tile_width
         self.drainrect.height = self.settings.tile_height
         self.drainrect.top = self.player_bounds_rect.bottom
@@ -107,24 +107,24 @@ class Tilemap():
         self.drainrect.inflate_ip(self.settings.tile_width * -0.99, self.settings.tile_height * -0.75)
         self.drainrect.move_ip(0, self.settings.tile_height * -0.5)
 
-        # Create the 'exit'
+        # Crie a 'saída'
         # self.blob_exit = BlobExit(self.settings, self.screen, self.exit_images, self)
 
-        # Create the player
+        # Crie o jogador
         self.player = Player(self.settings, self.screen, self.player_images, self.player_bounds_rect, self)
 
         # Position the timer
         self.level_timer.position_frame(self.screen_rect.centery, self.player_bounds_rect.right + self.settings.tile_width * 2)
 
     def generate_block(self, x, y):
-        """Create a new Block object at the given x,y and return it"""
+        """Crie um novo objeto Bloco no x, y fornecido e retorne-o"""
         new_block = Block(self.settings, self.screen, self.block_image)
         new_block.rect.top = y
         new_block.rect.left = x
         return new_block
 
     def generate_blocks(self, bounding_rect, group, bottom_left=False, bottom_right=False):
-        """Generates one of 4 possible block combinations"""
+        """Gera uma de 4 combinações de blocos possíveis"""
         # Always add all the 4 quadrants
         image_rect = self.block_image.get_rect()
         block_top_left = self.generate_block(bounding_rect.left, bounding_rect.top)
@@ -137,26 +137,26 @@ class Tilemap():
         group.add(block_bottom_right)
 
     def generate_box(self, x, y):
-        """Create a new box object at the given x,y and return it"""
+        """Crie um novo objeto de caixa no dado x, y e retorne-o"""
         new_box = Box(self.settings, self.screen, self.box_image)
         new_box.rect.top = y
-        new_box.rect.left = x
+        new_box.rect.left = x     
         return new_box
 
     def generate_boxes(self, bounding_rect, group, bottom_left=False, bottom_right=False):
-        """Generates one of 8 possible box combinations"""
+        """Gera uma das 8 combinações de caixa possíveis"""
         # Always add all the 4 quadrants
         image_rect = self.box_image.get_rect()
         box_top_left = self.generate_box(bounding_rect.left, bounding_rect.top)
         group.add(box_top_left)
 
     def generate_platforms(self):
-        """Make groups of sprites that contain the blocks for the player to stand on"""
+        """Faça grupos de sprites que contenham os blocos para o jogador se apoiar"""
 
-        # Every block is contained within the self.player_bounds_rect
+         # Cada bloco está contido no self.player_bounds_rect
 
-        # Find each "row" of tiles that can contain blocks and add some
-        # Eligible rows are every 3rd row starting from the 2nd to top, except the very bottom floor
+        # Encontre cada "linha" de ladrilhos que pode conter blocos e adicione alguns
+        # As linhas elegíveis são a cada 3ª linha, começando da 2ª ao topo, exceto o piso inferior
         row_rect = pygame.Rect((self.player_bounds_rect.left, self.player_bounds_rect.top + (self.settings.tile_height * 2)), 
             (self.player_bounds_rect.width, self.settings.tile_width))
 
@@ -164,34 +164,35 @@ class Tilemap():
         for row in range(0, (self.settings.map_number_floors-1)):
             new_group = Group()
 
-            # Each column in the eligble row has 4 valid placements for a block
-            # Note - there are more permutations, these are just the ones allowed
+            # Cada coluna na linha elegível tem 4 canais válidos para um bloco
+            # Nota - existem mais permutações, estas são apenas as permitidas
             # OO OO OO OO
             # XX OX OX OO
             for col in range(1, 9): # ALTERADO O DE range(0, self.settings.map_playable_width)
                 bounding_rect = pygame.Rect(0, 0, 0, 0)
                 bounding_rect.top = row_rect.top
-                bounding_rect.left = row_rect.left + col * self.settings.tile_width
+                bounding_rect.left = row_rect.left + col * self.settings.tile_width           
                 self.generate_blocks(bounding_rect, new_group, random.choice([True, False]), random.choice([True, False]))
 
             # Método criado para colocar as caixas na tela
             for col in range(0, 6, 5):
                 bounding_rect = pygame.Rect(0, 0, 0, 0)
                 bounding_rect.top = row_rect.top - 24 # -24 pois são dois blocos à frente
+              
                 bounding_rect.left = (row_rect.left + col * self.settings.tile_width) + 48 # +48 pois são dois blocos acima
                 self.generate_boxes(bounding_rect, new_group, random.choice([True, False]), random.choice([True, False]))
             
-            # Each row is its own group.  This could limit collision checks later
+            #Cada linha é seu próprio grupo. Isso pode limitar as verificações de colisão mais tarde
             self.block_group.add(new_group.sprites())
-            # Shif the bounding rect down one floor
+            #Desloque o retângulo de limite para baixo
             row_rect = row_rect.move(0, self.settings.tile_height * 6) # ALTERADA A tile_height DE 3 PARA 6
 
     def update(self):
-        """Update all owned objects (blocks, player, enemies, etc)"""
+        """Atualize todos os objetos de sua propriedade (blocos, jogador, inimigos, etc)"""
         # if self.player.at_top:
             # self.level_timer.stop()
 
-        # Check for a reset flag set on the player object
+        #Verifique se há um sinalizador de reinicialização definido no objeto do jogador
         if self.player.won_level:
             self.player.reset()
             self.enemies.empty()
@@ -202,27 +203,27 @@ class Tilemap():
             self.settings.enemy_generation_rate -= self.settings.enemy_generation_level_rate
             # self.level_timer.reset()
 
-        # Update the player
+        # Atualize o jogador
         self.player.update(self, self.enemies)
 
-        # Check if it's time to add a new enemy to the map
+        # Verifique se é hora de adicionar um novo inimigo ao mapa
         self.new_enemy_counter += 1
         if self.new_enemy_counter >= self.settings.enemy_generation_rate:
             self.new_enemy_counter = 0
-            # gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
+            gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
 
-        # Update enemies that exist
+        # Atualize os inimigos existentes
         for enemy in self.enemies:
             enemy.update(self)
 
-        # Update the 'exit' sprite
-        # self.blob_exit.update(self.enemies)
+        # Atualize o sprite de 'saída'
+        # self.blob_exit.update (self.enemies)
 
-        # Update the level info
+        # Atualize as informações do nível
         self.level_info.update()
 
-        # Update the level timer
-        # self.level_timer.update()
+        # Atualize o cronômetro de nível
+        # self.level_timer.update ()
 
         # bonuses
         for bonus in self.bonuses:
@@ -231,15 +232,15 @@ class Tilemap():
                 self.bonuses.remove(bonus)
 
     def draw_tiles(self, draw_grid_overlay=False):
-        """Draws just the tile portion of the map"""
-        # Make the bottom of the map align with the bottom of the screen
+        """Desenha apenas a parte do bloco do mapa"""
+        # Alinhe a parte inferior do mapa com a parte inferior da tela
         number_of_rows = len(self.indicies) / self.settings.map_width
         map_height = number_of_rows * self.settings.tile_height
         y_offset = self.screen_rect.height - map_height
         rect = pygame.Rect((self.x_offset, y_offset), (self.settings.tile_width, self.settings.tile_height))
         tiles_draw_per_row = 0
 
-        # Loop through each row and render it, simple for now, map fits on the screen
+        #Loop através de cada linha e renderizá-lo, simples por enquanto, o mapa se encaixa na tela
         for index in self.indicies:
             if index >= 0:
                 self.screen.blit(self.images[index], rect)
@@ -249,36 +250,36 @@ class Tilemap():
             tiles_draw_per_row += 1
             rect.left += self.settings.tile_width
 
-            # Every row worth of tiles, drop down one level and reset the x coord
+            # Cada linha de ladrilhos, desça um nível e redefina a coordenação x
             if tiles_draw_per_row == self.settings.map_width:
                 rect.top += self.settings.tile_height
                 rect.left = self.x_offset
                 tiles_draw_per_row = 0
 
-        # Draw the blocks
-        # This works because each block has 'image' member defined
+        #Desenhe os blocos
+        # Isso funciona porque cada bloco tem um membro 'imagem' definido
         self.block_group.draw(self.screen)
     
     def draw(self, draw_grid_overlay=False):
-        """Draws the tilemap."""
-        # Draw the enemies - can't use the Gorup method because of our animation logic
+        "" "Desenha o mapa de blocos." ""
+        # Desenhe os inimigos - não posso usar o método Gorup por causa de nossa lógica de animação
         for enemy in self.enemies:
             enemy.draw()
 
         self.draw_tiles(draw_grid_overlay)
 
-        # Draw the player
+        #Desenhe o jogador
         self.player.draw()
 
-        # Draw the exit
-        # self.blob_exit.draw()
+        # Desenhe a saída
+        # self.blob_exit.draw ()
 
-        # Draw the level info
+        # Desenhe as informações do nível
         self.level_info.draw()
 
         # Draw the level timer
         # self.level_timer.draw()
 
-        # Draw bonuses
+        # Sorteio de bônus
         for bonus in self.bonuses:
             bonus.draw(self.screen)
