@@ -32,7 +32,7 @@ class Settings():
         self.player_height = 32
         self.player_jump_velocity = -21 # ALTERADA A VELOCIDADE DO PULO DE -15 PARA -21
         self.player_air_jump_velocity = -8
-        self.player_max_air_jumps = 500
+        self.player_max_air_jumps = 4
         self.player_dx = 4 # ALTERADA A VELOCIDADE DE 2 PARA 4
 
         # pixels transparentes para deslocar para colisão horizontal (dependente da imagem)
@@ -102,53 +102,54 @@ class Settings():
         self.map_number_floors = 8
         self.map_number_subfloors = 1
 
-        # Posição da resposta 1 
-        self.resposta_1 = 'x'
+
+      
+        # Posição da resposta 1
+        self.resposta_1 = '/'
         self.resposta_1_X = 560
-        self.resposta_1_Y = 320
-        self.resposta_1_correta = True
-
-
-        # Posição da resposta 2 
-        self.resposta_2 = '/'
+        self.resposta_1_Y = 463
+        self.resposta_1_correta = False
+        
+        # Posição da resposta 2
+        self.resposta_2 = '-'
         self.resposta_2_X = 685
-        self.resposta_2_Y = 320
+        self.resposta_2_Y = 463
         self.resposta_2_correta = False
         
         # Posição da resposta 3
-        self.resposta_3 = '+'
+        self.resposta_3 = '?'
         self.resposta_3_X = 560
-        self.resposta_3_Y = 463
+        self.resposta_3_Y = 320
         self.resposta_3_correta = False
-        
+
         # Posição da resposta 4 
-        self.resposta_4 = '-'
+        self.resposta_4 = '='
         self.resposta_4_X = 685
-        self.resposta_4_Y = 463
-        self.resposta_4_correta = False
-        
-        # Posição da resposta 5 
-        self.resposta_5 = '>'
+        self.resposta_4_Y = 320
+        self.resposta_4_correta = False      
+     
+        # Posição da resposta _5
+        self.resposta_5 = '%'
         self.resposta_5_X = 560
         self.resposta_5_Y = 176
         self.resposta_5_correta = False
         
-        # Posição da resposta 6 
+        # Posição da resposta _6 
         self.resposta_6 = '('
-        self.resposta_6_X = 685
+        self.resposta_6_X = 682
         self.resposta_6_Y = 172
         self.resposta_6_correta = False
         
-        
-        # Posição da resposta 2 
-        self.resposta_7 = '>'
-        self.resposta_7_X = 685
-        self.resposta_7_Y = 32
-        self.resposta_7_correta = False
-        
-        # Posição da resposta 2 
-        self.resposta_8 = '%'
-        self.resposta_8_X = 560
+        # Posição da resposta 7
+        self.resposta_7 = '*'
+        self.resposta_7_X = 560
+        self.resposta_7_Y = 32        
+        self.resposta_7_correta = True
+
+       # Posição da resposta 8
+        self.resposta_8 = '<'
+        self.resposta_8_X = 685
         self.resposta_8_Y = 32
         self.resposta_8_correta = False
-    
+
+        

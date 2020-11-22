@@ -107,7 +107,8 @@ class Player(AnimatedSprite):
         return player_rect.colliderect(sprite.rect)
 
     def update(self, tile_map, enemies):
-        """Atualiza a posição do jogador sprite"""
+        """Atualiza a posição do jogador sprite""",       
+        
        
         
         if not self.dying:
@@ -123,7 +124,7 @@ class Player(AnimatedSprite):
             if self.dy == 0:
                 self.air_jumps = 0
 
-                # O jogador também precisa verificar o grupo de sprites inimigos
+            # O jogador também precisa verificar o grupo de sprites inimigos
             intersected_blobs = pygame.sprite.spritecollide(self, enemies, False, self.collision_check)
             if intersected_blobs:
                 self.dying = True
@@ -175,17 +176,52 @@ class Player(AnimatedSprite):
             # Se o jogador estiver pulando, verifique se há um acerto menor
             elif self.dy < 0:
                 
-                self.settings.resposta_1 =  str(self.rect.top)
-                if self.rect.left >= self.settings.resposta_1_X - 10 | self.rect.left <= self.settings.resposta_1_X + 10:
-                    if (self.rect.top == 325):
+                if (self.rect.left > 545  and self.rect.left < 560):
+                    if (self.rect.top >= 464 and self.rect.top < 467):
                         if  self.settings.resposta_1_correta:
-                            self.settings.resposta_1 =  "DEU BOM"
-                if self.rect.left >= self.settings.resposta_2_X - 10 | self.rect.left <= self.settings.resposta_2_X + 10:
-                    if (self.rect.top >= self.settings.resposta_2_Y - 15 | self.rect.top <= self.settings.resposta_2_Y + 15):
+                            self.won_level = self.settings.resposta_1_correta
+
+                if (self.rect.left > 675  and self.rect.left < 690):
+                    if (self.rect.top >= 464 and self.rect.top < 467):
                         if  self.settings.resposta_2_correta:
-                            self.settings.resposta_2 =  "DEU BOM"
-                        else:
-                            self.settings.resposta_2 =  "IIIH"                  
+                            self.won_level = self.settings.resposta_2_correta  
+
+                
+                if (self.rect.left > 545  and self.rect.left < 560):
+                    if (self.rect.top >= 325 and self.rect.top < 328):
+                        if  self.settings.resposta_3_correta:
+                            self.won_level = self.settings.resposta_3_correta
+
+                if (self.rect.left > 675  and self.rect.left < 690):
+                    if (self.rect.top >= 325 and self.rect.top < 328):
+                        if  self.settings.resposta_4_correta:
+                            self.won_level = self.settings.resposta_4_correta                             
+
+                
+                if (self.rect.left > 545  and self.rect.left < 560):
+                    if (self.rect.top >= 181 and self.rect.top < 185):
+                        if  self.settings.resposta_5_correta:
+                            self.won_level = self.settings.resposta_5_correta
+
+                if (self.rect.left > 675  and self.rect.left < 690):
+                    if (self.rect.top >= 181 and self.rect.top < 185):
+                        if  self.settings.resposta_6_correta:
+                            self.won_level = self.settings.resposta_6_correta                          
+
+                
+                if (self.rect.left > 545  and self.rect.left < 560):
+                    if (self.rect.top  > 30 and self.rect.top  < 40):
+                            if  self.settings.resposta_7_correta:
+                                self.won_level = self.settings.resposta_7_correta
+
+                if (self.rect.left > 675  and self.rect.left < 690):
+                    if (self.rect.top  > 30 and self.rect.top  < 40):
+                            if  self.settings.resposta_8_correta:
+                                self.won_level = self.settings.resposta_8_correta          
+              
+                
+             
+
                 if self.rect.bottom > block.rect.bottom:
                     self.dy = 0
                     self.rect.top = block.rect.bottom - self.settings.player_sprite_top_margin

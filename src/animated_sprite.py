@@ -98,7 +98,7 @@ class AnimatedSprite(Sprite):
                 self.dx = 0.0
 
     def update(self, tile_map, collision_check_group=None):
-        """Updates the sprite's basic position, more detailed collision is left to the derived class"""
+        """Atualiza a posição básica do sprite, a colisão mais detalhada é deixada para a classe derivada"""
         if self.bound_by_the_laws_of_physics:
             self.apply_physics(tile_map)
 
