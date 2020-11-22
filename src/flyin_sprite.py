@@ -24,7 +24,7 @@ class FlyInSprite(Sprite):
         self.frame_current = 0
 
     def set_start_position(self, top, left, dx, dy, frames):
-        """Sets the initial position and state of the sprite.  It can be off-screen"""
+        """Define a posição inicial e o estado do sprite. Pode estar fora da tela"""
         self.start_left = left
         self.start_top = top
         self.dx = dx
@@ -41,13 +41,13 @@ class FlyInSprite(Sprite):
     def update(self):
         """Move the sprite based on its velocities.  This does not interact with any other objects, so the logic is simple"""
 
-        # No gravity here, these objects will fly at a constant rate
+        # Sem gravidade aqui, esses objetos voarão a uma taxa constante
         if self.frame_current < self.frames_max:
             self.rect.left += self.dx
             self.rect.top += self.dy
             self.frame_current += 1
 
     def draw(self):
-        """Draws the image at the sprite's current location"""
+        """Desenha a imagem na localização atual do sprite"""
         self.screen.blit(self.image, self.rect)
 

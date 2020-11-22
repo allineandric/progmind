@@ -108,7 +108,8 @@ class Player(AnimatedSprite):
 
     def update(self, tile_map, enemies):
         """Atualiza a posição do jogador sprite"""
-
+       
+        
         if not self.dying:
             # Verifique se estamos na linha superior
             if self.idle_top:
@@ -154,8 +155,12 @@ class Player(AnimatedSprite):
     def handle_collision(self, collision_list, group):
         """Dada uma lista de sprites que colidem com o jogador, altere o estado, como posição, velocidade, etc."""
         # Mesmo que seja uma lista, o primeiro item deve ser tudo de que precisamos por agora
+       
+      
         if collision_list:
             block = collision_list[0]
+      
+        
 
             #isso é uma colisão lateral?
             side_collision = self.rect.right > block.rect.right  or self.rect.left < block.rect.left
@@ -169,6 +174,18 @@ class Player(AnimatedSprite):
                 self.rect.bottom = block.rect.top
             # Se o jogador estiver pulando, verifique se há um acerto menor
             elif self.dy < 0:
+                
+                self.settings.resposta_1 =  str(self.rect.top)
+                if self.rect.left >= self.settings.resposta_1_X - 10 | self.rect.left <= self.settings.resposta_1_X + 10:
+                    if (self.rect.top == 325):
+                        if  self.settings.resposta_1_correta:
+                            self.settings.resposta_1 =  "DEU BOM"
+                if self.rect.left >= self.settings.resposta_2_X - 10 | self.rect.left <= self.settings.resposta_2_X + 10:
+                    if (self.rect.top >= self.settings.resposta_2_Y - 15 | self.rect.top <= self.settings.resposta_2_Y + 15):
+                        if  self.settings.resposta_2_correta:
+                            self.settings.resposta_2 =  "DEU BOM"
+                        else:
+                            self.settings.resposta_2 =  "IIIH"                  
                 if self.rect.bottom > block.rect.bottom:
                     self.dy = 0
                     self.rect.top = block.rect.bottom - self.settings.player_sprite_top_margin

@@ -8,7 +8,7 @@ class Settings():
     def __init__(self):
         """Initialize the game's settings."""
         
-        # screen settings
+        # configurações de tela
         self.screen_width = 1255
         self.screen_height = 600
         self.caption = "Progmind" # ALTERADO O NOME DO JOGO PARA PROGMIND
@@ -16,18 +16,18 @@ class Settings():
         self.color_key = (255, 0, 255)
         self.fullscreen = False
 
-        # quick font
+        # fonte rápida
         self.font = pygame.freetype.SysFont(None, 16)
         self.font_color = (255, 255, 255)
 
-        # Bonus font
+        # Fonte bônus
         self.bonus_font = pygame.freetype.SysFont(None, 10)
 
-        # Global sprite settings
+        # Configurações globais de sprite
         self.gravity = 1.4
         self.terminal_velocity = 12
         
-        # Player sprite settings
+        # Configurações de sprite do jogador
         self.player_width = 24
         self.player_height = 32
         self.player_jump_velocity = -21 # ALTERADA A VELOCIDADE DO PULO DE -15 PARA -21
@@ -35,12 +35,12 @@ class Settings():
         self.player_max_air_jumps = 500
         self.player_dx = 4 # ALTERADA A VELOCIDADE DE 2 PARA 4
 
-        # transparent pixels to offset for horizontal collision (image dependent)
+        # pixels transparentes para deslocar para colisão horizontal (dependente da imagem)
         self.player_sprite_horz_margin = 3
-        # transparent pixels to offset for vertical collision (e.g. jumps)
+        # pixels transparentes para compensar para colisão vertical (por exemplo, saltos)
         self.player_sprite_top_margin = 9
 
-        # Animation names
+        # Nomes de animação
         self.anim_name_idle_left = 'IDLE.L'
         self.anim_name_idle_right = 'IDLE.R'
         self.anim_name_walk_left = 'WALK.L'
@@ -52,11 +52,11 @@ class Settings():
         self.anim_name_dead = 'DEAD'
         self.anim_name_exit = 'EXIT'
 
-        # level digit sizes
+        #tamanhos de dígitos de nível
         self.digit_width = 36
         self.digit_height = 48
 
-        # Timer digits (LCD style)
+        # Dígitos do cronômetro (estilo LCD)
         self.lcd_digit_width = 16
         self.lcd_digit_height = 24
 
@@ -70,7 +70,7 @@ class Settings():
         # Horz spacing between unrelated digits e.g. MM:SS or SS:mm
         self.lcd_frame_digit_padding_horz_major = 8
         
-        # Blob enemy settings
+        # Configurações do Blob inimigo
         self.enemy_blob_width = 16
         self.enemy_blob_height = 16
         self.enemy_blob_dx = 1
@@ -87,14 +87,14 @@ class Settings():
         self.tile_width = 24
         self.tile_height = 24
 
-        # Particle generator
+        # Gerador de partículas
         self.particle_gen_color = (255, 0, 0)
         self.particle_gen_dx_range = (-8, 8)
         self.particle_gen_dy_range = (5, 20)
         self.particle_gen_max_frames = 40
         self.particle_gen_per_frame = 5
         
-        # Map settings
+        # Configurações do mapa
         self.map_width = 16
         self.map_height = 10
         self.map_playable_width = 10
@@ -105,14 +105,14 @@ class Settings():
         # Posição da resposta 1 
         self.resposta_1 = 'x'
         self.resposta_1_X = 560
-        self.resposta_1_Y = 319
+        self.resposta_1_Y = 320
         self.resposta_1_correta = True
 
 
         # Posição da resposta 2 
         self.resposta_2 = '/'
         self.resposta_2_X = 685
-        self.resposta_2_Y = 319
+        self.resposta_2_Y = 320
         self.resposta_2_correta = False
         
         # Posição da resposta 3

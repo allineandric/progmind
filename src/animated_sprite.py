@@ -18,8 +18,8 @@ class AnimatedSprite(Sprite):
         # All images are the same size, so set the rect to the first one
         self.rect = images[0].get_rect()
 
-        # Initially not moving and not falling
-        self.dx = 0.0
+        # Inicialmente sem se mover e sem cair
+        self.dx = 50
         self.dy = 0.0
         self.falling = False
         self.falling_frames = 0
@@ -57,12 +57,11 @@ class AnimatedSprite(Sprite):
 
     def apply_physics(self, tile_map):
         """Gravity in this case"""
-        # The dy should be controlled by 'gravity' only for now - jumps will impart an
-        # Initial up velocity (done in the keyhandler), then gravity acts here on update.
-        # Without some sort of gravity approximation, sprites would move at the same speed
-        # while in the air and seem very light, like they're walking on the moon in low gravity
-        # only worse.  Not a problem for a top-down 2D game :)
-
+        # O dy deve ser controlado pela 'gravidade' apenas por agora - os saltos irão dar um
+         # Velocidade inicial de aumento (feita no manipulador de teclas), então a gravidade atua aqui na atualização.
+         # Sem algum tipo de aproximação da gravidade, os sprites se moveriam na mesma velocidade
+         # enquanto estão no ar e parecem muito leves, como se estivessem caminhando na lua em baixa gravidade
+         # apenas pior. Não é um problema para um jogo 2D de cima para baixo :)
         # If not on the ground floor, just assume we're falling (for now this will be true)
         if self.rect.bottom < tile_map.player_bounds_rect.bottom and self.falling == False:
             self.falling = True

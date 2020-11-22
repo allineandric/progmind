@@ -4,6 +4,7 @@ import src.game_functions as gf
 from src.image_resources import ImageResources
 from src.settings import Settings
 from src.tilemap import Tilemap
+from src.level_timer import LevelTimer
 import random
 import pygame
 
@@ -37,6 +38,7 @@ def run_game():
 
     # Use pygame's simple loop management for a fixed 30 FPS
     clock = pygame.time.Clock()
+    
     while True:
         # Should make sure each frame spends at least 1/30 seconds in this loop
         # downside is wasted sleep on fast hardware and slow hardware will lag
@@ -47,6 +49,7 @@ def run_game():
         # Process system events (key-presses, joystick, etc)
         gf.check_events(settings, screen, tile_map)
 
+    
         # Update the game (this will update all sub-object and render them to the screen)
         gf.update_screen(settings, screen, tile_map, Settings.level_number)
     

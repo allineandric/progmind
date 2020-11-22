@@ -364,7 +364,6 @@ def response_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
     font = settings.font   
-        
     font.render_to(screen, ( settings.resposta_1_X, settings.resposta_1_Y), settings.resposta_1, settings.font_color)
     font.render_to(screen, ( settings.resposta_2_X, settings.resposta_2_Y), settings.resposta_2, settings.font_color)
     font.render_to(screen, ( settings.resposta_3_X, settings.resposta_3_Y), settings.resposta_3, settings.font_color)
@@ -378,6 +377,7 @@ def response_text(settings, screen, level):
 
 def update_game_objects(settings, tile_map):
     tile_map.update()
+
 
 def draw_game_objects(settings, screen, tile_map, level):
     # Draw the map - pass True to render a grid overlay on the tiles

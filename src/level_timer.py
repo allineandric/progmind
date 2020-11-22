@@ -123,3 +123,4 @@ class LevelTimer():
         """Draw the visual representation of the clock"""
         self.screen.blit(self.frame_image, self.rect)
         self.digits.draw(self.screen)
+
