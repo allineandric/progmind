@@ -22,9 +22,12 @@ class LevelInfo():
 
     def update(self):
         """Update all owned sprites"""
-        self.level_sprite.update()
-        self.digit_ones.update()
-        self.digit_tens.update()
+        if self.settings.morte == False:
+            self.level_sprite.update()
+            self.digit_ones.update()
+            self.digit_tens.update()
+        else:
+            self.settings.morte == False
 
     def reset(self):
         """Reset all owned sprites"""

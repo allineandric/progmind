@@ -105,51 +105,62 @@ class Settings():
 
       
         # Posição da resposta 1
-        self.resposta_1 = '/'
-        self.resposta_1_X = 560
+        self.resposta_1 = '-'
+        self.resposta_1_X = 558
         self.resposta_1_Y = 463
         self.resposta_1_correta = False
         
         # Posição da resposta 2
-        self.resposta_2 = '-'
-        self.resposta_2_X = 685
+        self.resposta_2 = '+'
+        self.resposta_2_X = 679
         self.resposta_2_Y = 463
-        self.resposta_2_correta = False
+        self.resposta_2_correta = True
         
         # Posição da resposta 3
-        self.resposta_3 = '?'
-        self.resposta_3_X = 560
+        self.resposta_3 = '/'
+        self.resposta_3_X = 558
         self.resposta_3_Y = 320
         self.resposta_3_correta = False
 
         # Posição da resposta 4 
-        self.resposta_4 = '='
-        self.resposta_4_X = 685
+        self.resposta_4 = '%'
+        self.resposta_4_X = 679
         self.resposta_4_Y = 320
         self.resposta_4_correta = False      
      
         # Posição da resposta _5
-        self.resposta_5 = '%'
-        self.resposta_5_X = 560
+        self.resposta_5 = '&'
+        self.resposta_5_X = 558
         self.resposta_5_Y = 176
         self.resposta_5_correta = False
         
         # Posição da resposta _6 
-        self.resposta_6 = '('
+        self.resposta_6 = 'X'
         self.resposta_6_X = 682
         self.resposta_6_Y = 172
-        self.resposta_6_correta = False
+        self.resposta_6_correta = True
         
         # Posição da resposta 7
-        self.resposta_7 = '*'
-        self.resposta_7_X = 560
+        self.resposta_7 = ')'
+        self.resposta_7_X = 558
         self.resposta_7_Y = 32        
-        self.resposta_7_correta = True
+        self.resposta_7_correta = False
 
        # Posição da resposta 8
-        self.resposta_8 = '<'
-        self.resposta_8_X = 685
+        self.resposta_8 = '<>'
+        self.resposta_8_X = 679
         self.resposta_8_Y = 32
         self.resposta_8_correta = False
 
+        # Desafio concluído
+        self.desafio_concluido = True
+
+        # Nivel Desafio
+        self.desafio_Facil = 0
+        self.desafio_Medio = 3
+        self.desafio_Dificil = 4
+        self.contador_nivel = 0
+        self.rodada = 0
+        self.inicio_jogo = True
+        self.morte = False
         

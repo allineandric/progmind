@@ -1,6 +1,7 @@
 """This module implements standard game functions for Progmind, such as processing keypresses"""
+
 from tkinter import *
-from tkinter import messagebox
+from tkinter import scrolledtext 
 import sys
 import random
 from src.blob_enemy import Blob
@@ -110,32 +111,13 @@ def blit_help_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
     font = settings.font
-
-    if level == 1:
-        y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "desta expressão: 4 ? 5 = 20 ", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "Quebre a caixa que possui o simbolo do operador", settings.font_color)
-        y -= 40
+    if settings.rodada == 1:
+        y = screen.get_rect().bottom - 300
+        font.render_to(screen, (10,y), "desta expressão: 20 ? 4 = / ", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "Quebre a caixa com o simbolo do operador aritmético", settings.font_color)
+        y -= 35
         font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-
-        y -= 50
-        font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "Adição (+)   Subtração (-)   Multiplicação (*)   Divisão(/)", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "simbologia em todas as linguagens de programação", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "Em algoritmos eles também são simples e têm a mesma ", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "chavamaos de expressões aritméticas.", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "continhas de soma, subtração, multiplicação e divisão", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "Nos primeiros anos de estudo aprendemos a fazer  ", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "EXPRESSÕES ARITMÉTICAS", settings.font_color)
-
         y = screen.get_rect().bottom - 158
         y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
@@ -146,91 +128,17 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
+        font.render_to(screen, (800,y), "Desafios cumpridos: 0", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
+        font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
-    if level == 2:
-        y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "3 = 4", settings.font_color)
-        
-        y -= 30
-        font.render_to(screen, (10,y), "Arraste a caixa correta de acordo com o operador", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-        y -= 50
-        font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "expressões aritméticas", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "As expressões relacionais podem conter ", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "(ou seja, True ou False)", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "Esse dois valores são chamados de valores booleanos", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "resultado pode ser False (falso) ou True (verdadeiro) ", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "Operadores relacionais comparam dois valores e o ", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "EXPRESSÕES RELACIONAIS", settings.font_color)
-
-        y = screen.get_rect().bottom - 158
-        y -= 30
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
-        y -= 50
-        font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 40
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 20
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
-        y -= 60
-        font.render_to(screen, (800,y), "<>(ou !=)             Diferente", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "     >=                    Maior ou igual", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "     <=                    Menor ou igual", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "     >                      Maior", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "     <                      Menor", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "= (ou ==)             Igual", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "Operador           Função", settings.font_color)
-
-    if level == 3:
-        y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 20
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "variáveis do tipo booleano, ou seja, com valor VERDADEIRO(V) ou FALSO(F).", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "string, ou seja, cadeia de caracteres.  - logico: define ", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "com casas decimais.  - caractere: define variáveis do tipo", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), " - real: define variáveis numéricas do tipo real, ou seja,", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "numéricas do tipo inteiro, ou seja, sem casas decimais.", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "(ou booleano). Sendo eles:  - inteiro: define variáveis", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "de dados: inteiro, real, cadeia de caracteres e lógico", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "Na ciência da computação existem quatro tipos primitivos", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "TIPOS DE DADOS", settings.font_color)
-
+    if settings.rodada == 2:
+        y = screen.get_rect().bottom - 300
+        font.render_to(screen, (10,y), "desta expressão: 20 é (maior que) 4 ", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "Quebre a caixa com o simbolo do operador relacional", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "DESAFIO 2", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
@@ -241,34 +149,17 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
+        font.render_to(screen, (800,y), "Desafios cumpridos: 1 ", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
+        font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
-    if level == 4:
-        y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-        y -= 50
-        font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "EXPRESSÕES LÓGICAS", settings.font_color)
-
+    if settings.rodada == 3:
+        y = screen.get_rect().bottom - 300
+        font.render_to(screen, (10,y), "", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "Quebre as caixas com valores FLOAT", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "DESAFIO 2", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
         font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
@@ -279,87 +170,10 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
+        font.render_to(screen, (800,y), "Desafios cumpridos: 2 ", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
+        font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
-    if level == 5:
-        y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-        y -= 50
-        font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "ESTRUTURA DE REPETIÇÃO", settings.font_color)
-
-        y = screen.get_rect().bottom - 158
-        y -= 110
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
-        y -= 50
-        font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
-
-    if level == 6:
-        y = screen.get_rect().bottom - 98
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "DESAFIO 1", settings.font_color)
-        y -= 50
-        font.render_to(screen, (10,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 30
-        font.render_to(screen, (10,y), "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx", settings.font_color)
-        y -= 40
-        font.render_to(screen, (10,y), "ESTRUTURA DE DECISÃO", settings.font_color)
-
-        y = screen.get_rect().bottom - 158
-        y -= 110
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
-        y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
-        y -= 50
-        font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos:", settings.font_color)
-        y -= 30
-        font.render_to(screen, (800,y), "Total de desafios:", settings.font_color)
-
-    
 def response_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
@@ -372,12 +186,11 @@ def response_text(settings, screen, level):
     font.render_to(screen, ( settings.resposta_6_X, settings.resposta_6_Y), settings.resposta_6, settings.font_color)
     font.render_to(screen, ( settings.resposta_7_X, settings.resposta_7_Y), settings.resposta_7, settings.font_color)
     font.render_to(screen, ( settings.resposta_8_X, settings.resposta_8_Y), settings.resposta_8, settings.font_color)
-
+    
 
 
 def update_game_objects(settings, tile_map):
     tile_map.update()
-
 
 def draw_game_objects(settings, screen, tile_map, level):
     # Draw the map - pass True to render a grid overlay on the tiles
@@ -388,8 +201,14 @@ def draw_game_objects(settings, screen, tile_map, level):
     
     response_text(settings, screen, level)
 
+    
+    verifica_level(settings)
+
 def update_screen(settings, screen, tile_map, level):
     """Update images and flip screen"""
+
+
+
     # Redraw screen each pass
     screen.fill(settings.bg_color)
 
@@ -401,3 +220,135 @@ def update_screen(settings, screen, tile_map, level):
 
     # FLIP....
     pygame.display.flip()
+
+    
+    verifica_level(settings)
+
+def verifica_level(settings):
+    if settings.desafio_concluido:
+        settings.rodada += 1
+        limpar_todas_respostas(settings)
+             
+        if settings.rodada == 1:
+            settings.resposta_1 = '+'
+            settings.resposta_2 = '-'
+            settings.resposta_3 = '*'
+            settings.resposta_4 = '/'
+            settings.resposta_5 = '>'
+            settings.resposta_6 = '%'
+            settings.resposta_7 = '('
+            settings.resposta_8 = '^'
+            settings.resposta_4_correta = True
+           
+           # Creating tkinter main window 
+            root = Tk() 
+            root.title("Nível 1") 
+            root.configure(background='#231336')
+            root.geometry("750x450")   
+            root.resizable(width=True, height=True)
+
+            
+
+            # CONTEÚDO
+            
+            Label(root,  
+                    text = "_______________________________________________________________________________________________" +
+                    "\n\n\n#EXPRESSÕES ARITMÉTICAS \n\n\nExistem quatro operações aritméticas básicas, que você já conhece do seu dia a dia: " +
+                    "\nSoma: representada pelo símbolo +, que pode ser chamado de operador soma"
+                    "\nSubtração: representada pelo símbolo –, também chamado de operador subtração;"
+                    "\nDivisão: representada pelo símbolo /, também chamado de operador divisão;"
+                    "\nMultiplicação: representada pelo símbolo *, também chamado de operador multiplicação."
+                     "\n_______________________________________________________________________________________________" +
+                     "\n\n EXEMPLO: \n\n 22 + 10 = 32 ",
+                    font = ("Arial", 12),  
+                    background = '#231336',  
+                    justify="left",
+                    foreground = "white").grid(column = 15, 
+                                                row = 15) 
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
+                                    command = root.destroy).place(x = 600, y = 350)  
+           
+            root.mainloop() 
+ 
+      
+        if settings.rodada == 2:
+            settings.resposta_1 = '<'
+            settings.resposta_2 = '('
+            settings.resposta_3 = '<='
+            settings.resposta_4 = '>='
+            settings.resposta_5 = '!='
+            settings.resposta_6 = '='
+            settings.resposta_7 = '>'
+            settings.resposta_8 = '<>'
+            settings.resposta_7_correta = True
+           
+           # Creating tkinter main window 
+            root = Tk() 
+            root.title("Nível 2") 
+            root.configure(background='#231336')
+            root.geometry("750x450")   
+            root.resizable(width=True, height=True)
+
+            
+
+            # CONTEÚDO
+            
+            Label(root,  
+                    text = "_______________________________________________________________________________________________" +
+                    "\n\n\n#EXPRESSÕES RELACIONAIS \n\n\nOs operadores relacionais são utilizado para comparar valores, o resultado " +
+                    "de uma expressão é um valor\n booleano (verdeiro ou falso).\nEles são representados pelos seguinte próximos simbolos: \n\n "+
+                    "IGUAL ( == )\n DIFERENTE ( != ) \n MAIOR ( > ) \n MENOR ( < ) \n MAIOR OU IGUAL ( >= ) \n MENOR OU IGUAL (<=)" +
+                     "\n_______________________________________________________________________________________________" +
+                     "\n\n EXEMPLO: \n\n 4 é igual (=) 2 x 2 \n 3 é menor (<) que 4 \n 'A' é diferente de 'B' ",
+                    font = ("Arial", 12),  
+                    background = '#231336',  
+                    justify="left",
+                    foreground = "white").grid(column = 15, 
+                                                row = 15) 
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
+                                    command = root.destroy).place(x = 600, y = 350)  
+           
+            root.mainloop() 
+ 
+        
+        if settings.rodada == 3:
+            settings.resposta_1 = '4'
+            settings.resposta_2 = '5.5'
+            settings.resposta_3 = 'A'
+            settings.resposta_4 = '='
+            settings.resposta_5 = 'b'
+            settings.resposta_6 = '('
+            settings.resposta_7 = 'D'
+            settings.resposta_8 = 'C'
+            settings.resposta_1_correta = True  
+            settings.resposta_2_correta = True       
+        
+        
+        if settings.rodada == 4:
+            settings.resposta_1 = 'TESTE 3'
+            settings.resposta_2 = '?'
+            settings.resposta_3 = '+'
+            settings.resposta_4 = '-'
+            settings.resposta_5 = 'X'
+            settings.resposta_6 = '('
+            settings.resposta_7 = '>'
+            settings.resposta_8 = '%'
+            settings.resposta_3_correta = True
+        
+        settings.desafio_concluido = False
+      
+
+def limpar_todas_respostas(settings):    
+    settings.contador_nivel = 0
+    settings.resposta_1_correta = False
+    settings.resposta_2_correta = False
+    settings.resposta_3_correta = False
+    settings.resposta_4_correta = False
+    settings.resposta_5_correta = False
+    settings.resposta_6_correta = False
+    settings.resposta_7_correta = False
+    settings.resposta_8_correta = False

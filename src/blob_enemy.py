@@ -44,12 +44,12 @@ class Blob(AnimatedSprite):
                     self.set_current_animation(self.settings.anim_name_jump_down_right)
 
     def update(self, tile_map):
-        """Updates the blob sprite's position"""
+        """Atualiza a posição do sprite blob"""
         
         if not self.dying:
             last_dx = self.dx
             super().update(tile_map, tile_map.block_group)
-            # Blobs only stop when they hit a wall so reverse course
+            # Blobs só param quando atingem uma parede, então reverta o curso
             if last_dx != 0 and self.dx == 0:
                 self.facing_left = not self.facing_left
                 if self.facing_left:
@@ -57,7 +57,7 @@ class Blob(AnimatedSprite):
                 else:
                     self.dx = -1.0
 
-            # Check if the blob is over the "exit" for the enemies, and if so, drop it down
+            # verifique se o blob está sobre a "saída" para os inimigos, e se estiver, solte-o
             if tile_map.drainrect.colliderect(self.rect):
                 self.dying = True
                 self.falling = True
@@ -75,9 +75,9 @@ class Blob(AnimatedSprite):
         self.finish_update()
 
     def handle_collision(self, collision_list, group):
-        """Given a list of sprites that collide with the sprite, alter state such as position, velocity, etc"""
-        # If there's only 1 block, then we're over an edge, so do nothing in that case
-        # and just let the sprite fall, otherwise, clamp to the top of the block
+        """Dada uma lista de sprites que colidem com o sprite, altere o estado, como posição, velocidade, etc"""
+        # Se houver apenas 1 bloco, então estamos no limite, então não faça nada nesse caso
+        # e apenas deixe o sprite cair, caso contrário, prenda-se ao topo do bloco
         if collision_list:
             if len(collision_list) > 1:
                 self.falling = False

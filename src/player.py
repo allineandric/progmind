@@ -3,6 +3,7 @@
 from src.animation import Animation
 from src.animated_sprite import AnimatedSprite
 from src.time_bonus import TimeBonus
+import src.game_functions as gf
 import pygame
 
 class Player(AnimatedSprite):
@@ -146,10 +147,8 @@ class Player(AnimatedSprite):
                 self.dy = 0.0
                 self.dying = False
             else:
-                if self.dy < self.settings.terminal_velocity:
-                    self.dy += self.settings.gravity
-                self.rect.centery += self.dy
-                self.falling_frames += 1
+                self.settings.morte = True
+                self.won_level = True
 
         self.finish_update()
 
@@ -159,8 +158,7 @@ class Player(AnimatedSprite):
        
       
         if collision_list:
-            block = collision_list[0]
-      
+            block = collision_list[0]      
         
 
             #isso é uma colisão lateral?
@@ -174,50 +172,169 @@ class Player(AnimatedSprite):
                 self.dy = 0
                 self.rect.bottom = block.rect.top
             # Se o jogador estiver pulando, verifique se há um acerto menor
-            elif self.dy < 0:
-                
-                if (self.rect.left > 545  and self.rect.left < 560):
-                    if (self.rect.top >= 464 and self.rect.top < 467):
+            elif self.dy < 0:               
+
+                if (self.rect.left > 520  and self.rect.left < 580):
+                    if (self.rect.top >= 464 and self.rect.top < 470):
+                        self.settings.resposta_1 = ''; 
                         if  self.settings.resposta_1_correta:
-                            self.won_level = self.settings.resposta_1_correta
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
 
-                if (self.rect.left > 675  and self.rect.left < 690):
-                    if (self.rect.top >= 464 and self.rect.top < 467):
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True                        
+                             
+                      
+
+                if (self.rect.left > 650  and self.rect.left < 720):
+                    if (self.rect.top >= 464 and self.rect.top < 477):
+                        self.settings.resposta_2 = ''
                         if  self.settings.resposta_2_correta:
-                            self.won_level = self.settings.resposta_2_correta  
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
+
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True    
 
                 
-                if (self.rect.left > 545  and self.rect.left < 560):
-                    if (self.rect.top >= 325 and self.rect.top < 328):
+                if (self.rect.left > 520  and self.rect.left < 580):
+                    if (self.rect.top >= 320 and self.rect.top < 328):
+                        self.settings.resposta_3 = ''
                         if  self.settings.resposta_3_correta:
-                            self.won_level = self.settings.resposta_3_correta
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
 
-                if (self.rect.left > 675  and self.rect.left < 690):
-                    if (self.rect.top >= 325 and self.rect.top < 328):
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True      
+
+                if (self.rect.left > 650  and self.rect.left < 720):
+                    if (self.rect.top >= 320 and self.rect.top < 328):
+                        self.settings.resposta_4 = ''
                         if  self.settings.resposta_4_correta:
-                            self.won_level = self.settings.resposta_4_correta                             
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
+
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True                                 
 
                 
-                if (self.rect.left > 545  and self.rect.left < 560):
-                    if (self.rect.top >= 181 and self.rect.top < 185):
+                if (self.rect.left > 520  and self.rect.left < 580):
+                    if (self.rect.top >= 170 and self.rect.top < 185):
+                        self.settings.resposta_5 = ''
                         if  self.settings.resposta_5_correta:
-                            self.won_level = self.settings.resposta_5_correta
+                            self.settings.resposta_5 = ''
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
 
-                if (self.rect.left > 675  and self.rect.left < 690):
-                    if (self.rect.top >= 181 and self.rect.top < 185):
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True       
+
+                if (self.rect.left > 650  and self.rect.left < 720):
+                    if (self.rect.top >= 170 and self.rect.top < 185):
+                        self.settings.resposta_6 = ''
                         if  self.settings.resposta_6_correta:
-                            self.won_level = self.settings.resposta_6_correta                          
+                            self.settings.resposta_6 = ''
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
 
-                
-                if (self.rect.left > 545  and self.rect.left < 560):
-                    if (self.rect.top  > 30 and self.rect.top  < 40):
-                            if  self.settings.resposta_7_correta:
-                                self.won_level = self.settings.resposta_7_correta
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
 
-                if (self.rect.left > 675  and self.rect.left < 690):
-                    if (self.rect.top  > 30 and self.rect.top  < 40):
-                            if  self.settings.resposta_8_correta:
-                                self.won_level = self.settings.resposta_8_correta          
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True                               
+
+
+
+                if (self.rect.left > 520  and self.rect.left < 580):
+                    if (self.rect.top  > 25 and self.rect.top  < 50):
+                        self.settings.resposta_7 = ''
+                        if  self.settings.resposta_7_correta:
+                            self.settings.resposta_7 = ''
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
+
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True    
+
+                if (self.rect.left > 650  and self.rect.left < 750):
+                    if (self.rect.top  > 25 and self.rect.top  < 50):
+                        self.settings.resposta_8 = ''
+                        if  self.settings.resposta_8_correta:
+                            self.settings.resposta_8 = ''
+                            self.settings.contador_nivel += 1  
+                            if self.settings.level_number < self.settings.desafio_Medio:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True
+
+                            if self.settings.level_number > self.settings.desafio_Facil and self.settings.level_number < self.settings.desafio_Dificil:
+                                if  self.settings.contador_nivel == 2:
+                                    self.settings.desafio_concluido = True
+                                    self.won_level = True   
+                            
+
+                            if self.settings.level_number >= self.settings.desafio_Dificil:
+                                self.settings.desafio_concluido = True
+                                self.won_level = True                
               
                 
              

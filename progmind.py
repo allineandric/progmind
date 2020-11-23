@@ -1,5 +1,7 @@
 """This module is the main entry for the Progmind game"""
 
+from tkinter import *
+from tkinter import scrolledtext 
 import src.game_functions as gf
 from src.image_resources import ImageResources
 from src.settings import Settings
@@ -12,6 +14,30 @@ def run_game():
     """Main entry point for Progmind"""
 
     # Startup pygame object
+    root = Tk() 
+    root.title("PROGMIND") 
+    root.configure(background='#24235c')
+    root.geometry("350x350")   
+    root.resizable(width=True, height=True)
+            
+
+            # CONTEÚDO
+            
+    Label(root,  
+        text = "_______________________________________________________________________________________________" +
+        "\n\n\n P R O G M I N D! " +
+        "\n_______________________________________________________________________________________________" ,                  
+        font = ("Arial", 25),  
+        background = '#24235c',  
+        justify="left",
+        foreground = "white").grid(column = 15, 
+        row = 15) 
+    # Create a Button 
+    Button(root, text = 'JOGAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+    command = root.destroy).place(x = 250, y = 250)  
+    
+    root.mainloop()
+
     pygame.init()
 
     random.seed()
