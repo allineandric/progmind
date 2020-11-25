@@ -31,7 +31,7 @@ class Settings():
         self.player_width = 24
         self.player_height = 32
         self.player_jump_velocity = -21 # ALTERADA A VELOCIDADE DO PULO DE -15 PARA -21
-        self.player_air_jump_velocity = -8
+        self.player_air_jump_velocity = -20
         self.player_max_air_jumps = 4
         self.player_dx = 4 # ALTERADA A VELOCIDADE DE 2 PARA 4
 
