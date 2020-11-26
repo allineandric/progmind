@@ -182,7 +182,7 @@ class Player(AnimatedSprite):
             # Se o jogador estiver pulando, verifique se há um acerto menor
             elif self.dy < 0:               
 
-                if (self.rect.left > 500  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 600):
                     if (self.rect.top >= 464 and self.rect.top < 470):
                         self.settings.resposta_1 = ''; 
                         if  self.settings.resposta_1_correta:
@@ -203,7 +203,7 @@ class Player(AnimatedSprite):
                              
                       
 
-                if (self.rect.left > 650  and self.rect.left < 720):
+                if (self.rect.left > 630  and self.rect.left < 720):
                     if (self.rect.top >= 464 and self.rect.top < 477):
                         self.settings.resposta_2 = ''
                         if  self.settings.resposta_2_correta:
@@ -223,7 +223,7 @@ class Player(AnimatedSprite):
                                 self.won_level = True    
 
                 
-                if (self.rect.left > 500  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 600):
                     if (self.rect.top >= 320 and self.rect.top < 328):
                         self.settings.resposta_3 = ''
                         if  self.settings.resposta_3_correta:
@@ -242,7 +242,7 @@ class Player(AnimatedSprite):
                                 self.settings.desafio_concluido = True
                                 self.won_level = True      
 
-                if (self.rect.left > 650  and self.rect.left < 720):
+                if (self.rect.left > 630  and self.rect.left < 720):
                     if (self.rect.top >= 320 and self.rect.top < 328):
                         self.settings.resposta_4 = ''
                         if  self.settings.resposta_4_correta:
@@ -262,7 +262,7 @@ class Player(AnimatedSprite):
                                 self.won_level = True                                 
 
                 
-                if (self.rect.left > 500  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 600):
                     if (self.rect.top >= 170 and self.rect.top < 185):
                         self.settings.resposta_5 = ''
                         if  self.settings.resposta_5_correta:
@@ -282,7 +282,7 @@ class Player(AnimatedSprite):
                                 self.settings.desafio_concluido = True
                                 self.won_level = True       
 
-                if (self.rect.left > 650  and self.rect.left < 720):
+                if (self.rect.left > 630  and self.rect.left < 720):
                     if (self.rect.top >= 170 and self.rect.top < 185):
                         self.settings.resposta_6 = ''
                         if  self.settings.resposta_6_correta:
@@ -304,7 +304,7 @@ class Player(AnimatedSprite):
 
 
 
-                if (self.rect.left > 500  and self.rect.left < 580):
+                if (self.rect.left > 480  and self.rect.left < 600):
                     if (self.rect.top  > 25 and self.rect.top  < 50):
                         self.settings.resposta_7 = ''
                         if  self.settings.resposta_7_correta:
@@ -324,7 +324,7 @@ class Player(AnimatedSprite):
                                 self.settings.desafio_concluido = True
                                 self.won_level = True    
 
-                if (self.rect.left > 650  and self.rect.left < 750):
+                if (self.rect.left > 630  and self.rect.left < 750):
                     if (self.rect.top  > 25 and self.rect.top  < 50):
                         self.settings.resposta_8 = ''
                         if  self.settings.resposta_8_correta:

@@ -158,7 +158,7 @@ class Settings():
         # Nivel Desafio
         self.desafio_Facil = 0
         self.desafio_Medio = 3
-        self.desafio_Dificil = 4
+        self.desafio_Dificil = 3
         self.contador_nivel = 0
         self.rodada = 0
         self.inicio_jogo = True

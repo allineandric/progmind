@@ -111,6 +111,7 @@ def blit_help_text(settings, screen, level):
     """Draws the text explaining what keys do what"""
     color_white = (255, 255, 255)
     font = settings.font
+        #LEVEL 1
     if settings.rodada == 1:
         y = screen.get_rect().bottom - 300
         font.render_to(screen, (10,y), "desta expressão: 20 ? 4 = 80 ", settings.font_color)
@@ -132,11 +133,12 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
+    #LEVEL 2
     if settings.rodada == 2:
         y = screen.get_rect().bottom - 300
-        font.render_to(screen, (10,y), "desta expressão: 20 é maior (>) que 4 ?", settings.font_color)
+        font.render_to(screen, (10,y), "desta expressão: 20 > 4", settings.font_color)
         y -= 35
-        font.render_to(screen, (10,y), "Quebre a caixa com o simbolo do operador relacional", settings.font_color)
+        font.render_to(screen, (10,y), "Quebre a caixa com o resultado", settings.font_color)
         y -= 35
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
@@ -153,6 +155,7 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
+    #LEVEL 3
     if settings.rodada == 3:
         y = screen.get_rect().bottom - 300
         font.render_to(screen, (10,y), "", settings.font_color)
@@ -174,11 +177,18 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
+    #LEVEL 4
     if settings.rodada == 4:
         y = screen.get_rect().bottom - 300
-        font.render_to(screen, (10,y), "", settings.font_color)
+        font.render_to(screen, (10,y), "print 'Maior que Zero.'", settings.font_color)
         y -= 35
-        font.render_to(screen, (10,y), "Quebre as caixas com valores FLOAT", settings.font_color)
+        font.render_to(screen, (10,y), "if soma > 0:", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "desta expressão:", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "condicional", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "Quebre a caixa de acordo com a função sobre estrutura", settings.font_color)
         y -= 35
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
@@ -191,15 +201,24 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos: 2 ", settings.font_color)
+        font.render_to(screen, (800,y), "Desafios cumpridos: 3", settings.font_color)
         y -= 30
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
+    #LEVEL 5
     if settings.rodada == 5:
         y = screen.get_rect().bottom - 300
-        font.render_to(screen, (10,y), "", settings.font_color)
+        font.render_to(screen, (10,y), "}", settings.font_color)
         y -= 35
-        font.render_to(screen, (10,y), "Empurre caixas com valores pares até o centro", settings.font_color)
+        font.render_to(screen, (10,y), "         i + 1", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "__ x for verdadeiro FAÇA {", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "desta expressão:", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "corretamente o trecho de pseudocódigo abaixo:", settings.font_color)
+        y -= 35
+        font.render_to(screen, (10,y), "Quebre a caixa com a estrutura de repetição que completa ", settings.font_color)
         y -= 35
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
@@ -212,7 +231,7 @@ def blit_help_text(settings, screen, level):
         y -= 30
         font.render_to(screen, (800,y), "", settings.font_color)
         y -= 30
-        font.render_to(screen, (800,y), "Desafios cumpridos: 2 ", settings.font_color)
+        font.render_to(screen, (800,y), "Desafios cumpridos: 4", settings.font_color)
         y -= 30
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
@@ -277,7 +296,7 @@ def verifica_level(settings):
             settings.resposta_6 = '%'
             settings.resposta_7 = '('
             settings.resposta_8 = '^'
-            settings.resposta_4_correta = True
+            settings.resposta_3_correta = True
            
             #region DESAFIO 1_1 
             root = Tk() 
@@ -346,7 +365,7 @@ def verifica_level(settings):
             settings.resposta_6 = '='
             settings.resposta_7 = '>'
             settings.resposta_8 = '<>'
-            settings.resposta_7_correta = True
+            settings.resposta_4_correta = True
           
             #region DESAFIO 2_1
             root = Tk() 
@@ -415,11 +434,11 @@ def verifica_level(settings):
             settings.resposta_3 = 'A'
             settings.resposta_4 = '='
             settings.resposta_5 = 'b'
-            settings.resposta_6 = '('
+            settings.resposta_6 = '10'
             settings.resposta_7 = 'D'
             settings.resposta_8 = 'C'
             settings.resposta_1_correta = True 
-            settings.resposta_2_correta = True 
+            settings.resposta_6_correta = True 
 
              #region DESAFIO 3_1 
             root = Tk() 
@@ -483,16 +502,15 @@ def verifica_level(settings):
             
             settings.player_dx = 3
 
-            settings.resposta_1 = 'TESTE 3'
-            settings.resposta_2 = '?'
-            settings.resposta_3 = '+'
-            settings.resposta_4 = '-'
-            settings.resposta_5 = 'X'
-            settings.resposta_6 = '('
-            settings.resposta_7 = '>'   
-            settings.resposta_8 = '%'
-            settings.resposta_3_correta = True   
-            settings.resposta_2_correta = True  
+            settings.resposta_1 = '4'
+            settings.resposta_2 = 'composta'
+            settings.resposta_3 = '='
+            settings.resposta_4 = 'true'
+            settings.resposta_5 = 'simples'
+            settings.resposta_6 = '>'
+            settings.resposta_7 = 'D'
+            settings.resposta_8 = 'switch'
+            settings.resposta_5_correta = True
             # Creating tkinter main window 
 
              #region DESAFIO 4_1 
@@ -560,16 +578,15 @@ def verifica_level(settings):
             
             settings.player_dx = 3
 
-            settings.resposta_1 = 'TESTE 3'
-            settings.resposta_2 = '?'
-            settings.resposta_3 = '+'
-            settings.resposta_4 = '-'
-            settings.resposta_5 = 'X'
-            settings.resposta_6 = '('
-            settings.resposta_7 = '>'   
-            settings.resposta_8 = '%'
-            settings.resposta_3_correta = True   
-            settings.resposta_2_correta = True  
+            settings.resposta_1 = 'para'
+            settings.resposta_2 = 'até'
+            settings.resposta_3 = 'V'
+            settings.resposta_4 = '1'
+            settings.resposta_5 = 'enquanto'
+            settings.resposta_6 = '6'
+            settings.resposta_7 = 'ao fim'
+            settings.resposta_8 = 'int'
+            settings.resposta_5_correta = True 
             # Creating tkinter main window 
 
              #region DESAFIO 5_1 
