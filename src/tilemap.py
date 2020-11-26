@@ -207,11 +207,14 @@ class Tilemap():
         self.player.update(self, self.enemies)
 
         # Verifique se é hora de adicionar um novo inimigo ao mapa
-        if self.settings.rodada > 1:
+        if self.settings.rodada > 2:
             self.new_enemy_counter += self.settings.rodada
-            if self.new_enemy_counter >= self.settings.enemy_generation_rate:
-                self.new_enemy_counter = 0
-                gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
+        elif(self.settings.rodada > 1):
+            self.new_enemy_counter += self.settings.rodada
+
+        if self.new_enemy_counter >= self.settings.enemy_generation_rate:
+            self.new_enemy_counter = 0
+            gf.generate_new_random_blob(self.settings, self.screen, self.settings.image_res.enemy_blob_images, self)
 
         # Atualize os inimigos existentes
         for enemy in self.enemies:
