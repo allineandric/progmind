@@ -302,8 +302,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_1_1.gif")
@@ -322,8 +322,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_1_2.gif")
@@ -341,8 +341,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_1_3.gif")
@@ -371,8 +371,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_2_1.gif")
@@ -391,8 +391,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_2_2.gif")
@@ -410,8 +410,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_2_3.gif")
@@ -444,8 +444,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_3_1.gif")
@@ -464,8 +464,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_3_2.gif")
@@ -483,8 +483,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_3_3.gif")
@@ -517,8 +517,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_4_1.gif")
@@ -537,8 +537,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_4_2.gif")
@@ -556,8 +556,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_4_3.gif")
@@ -593,8 +593,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_5_1.gif")
@@ -613,8 +613,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_5_2.gif")
@@ -632,8 +632,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_5_3.gif")
@@ -656,8 +656,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_1.gif")
@@ -676,8 +676,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_2.gif")
@@ -695,8 +695,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_3.gif")
@@ -715,8 +715,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_4.gif")
@@ -735,8 +735,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_5.gif")
@@ -755,8 +755,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_6.gif")
@@ -775,8 +775,8 @@ def verifica_level(settings):
             root = Tk() 
             root.title("PROGMIND") 
             root.configure(background='#24235c')
-            root.geometry("660x660")   
-            root.resizable(width=True, height=True)      
+            root.geometry('%dx%d+%d+%d' % (660, 660, (root.winfo_screenwidth()/2) - (660/2) - 25, (root.winfo_screenheight()/2) - (660/2) - 25))
+            root.resizable(width=False, height=False)
 
             # CONTEÚDO
             img = PhotoImage(file="./images/DESAFIO_6_7.gif")

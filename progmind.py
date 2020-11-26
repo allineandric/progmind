@@ -28,23 +28,24 @@ def run_game():
     root = Tk() 
     root.title("PROGMIND") 
     root.configure(background='#24235c')
-    root.geometry("600x600")   
-    root.resizable(width=True, height=True)      
+    w = 600
+    h = 600
+    ws = root.winfo_screenwidth()
+    hs = root.winfo_screenheight()
+    x = (ws/2) - (w/2) - 30
+    y = (hs/2) - (h/2) - 30
+    root.geometry('%dx%d+%d+%d' % (w, h, x, y))
+    root.resizable(width=False, height=False)
 
     # CONTEÚDO
-
-
     img = PhotoImage(file="images/progmind-logo.gif")
     img =  img.subsample(2, 2)
 
     label_imagem = Label(root, image=img).grid(row=1)
-
    
-    # Create a Button 
+    # Create a Button
     Button(root, text = 'COMEÇAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
-    command = root.destroy,  width = 20).place(x = 200, y = 350)  
-
-    
+        command = root.destroy,  width = 20).place(x = 200, y = 350)
 
     root.mainloop()
 
