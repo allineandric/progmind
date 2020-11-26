@@ -5,6 +5,7 @@ from src.animated_sprite import AnimatedSprite
 from src.time_bonus import TimeBonus
 import src.game_functions as gf
 import pygame
+import time
 
 class Player(AnimatedSprite):
     """Objeto de jogador"""
@@ -83,6 +84,10 @@ class Player(AnimatedSprite):
                 self.set_current_animation(self.settings.anim_name_walk_right)
         # JUMPING
         else:
+            pygame.mixer.init()
+            sounda= pygame.mixer.Sound("jumpland.wav")
+            sounda.set_volume(0.05)                      
+            sounda.play()
             if self.dy < 0:
                 if self.facing_left:
                     self.set_current_animation(self.settings.anim_name_jump_up_left)
@@ -108,9 +113,7 @@ class Player(AnimatedSprite):
         return player_rect.colliderect(sprite.rect)
 
     def update(self, tile_map, enemies):
-        """Atualiza a posição do jogador sprite""",       
-        
-       
+        """Atualiza a posição do jogador sprite"""      
         
         if not self.dying:
             # Verifique se estamos na linha superior
@@ -146,10 +149,15 @@ class Player(AnimatedSprite):
                 self.dx = 0.0
                 self.dy = 0.0
                 self.dying = False
-            else:
-                self.settings.morte = True
-                self.won_level = True
-
+            else: 
+                if self.dy < self.settings.terminal_velocity:
+                    self.dy += self.settings.gravity
+                self.rect.centery += self.dy
+                # pygame.mixer.init()
+                # som= pygame.mixer.Sound("não consegue né.wav")
+                # som.set_volume(0.1)              
+                # som.play()
+                self.falling_frames += 1
         self.finish_update()
 
     def handle_collision(self, collision_list, group):
@@ -174,7 +182,7 @@ class Player(AnimatedSprite):
             # Se o jogador estiver pulando, verifique se há um acerto menor
             elif self.dy < 0:               
 
-                if (self.rect.left > 520  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 580):
                     if (self.rect.top >= 464 and self.rect.top < 470):
                         self.settings.resposta_1 = ''; 
                         if  self.settings.resposta_1_correta:
@@ -215,7 +223,7 @@ class Player(AnimatedSprite):
                                 self.won_level = True    
 
                 
-                if (self.rect.left > 520  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 580):
                     if (self.rect.top >= 320 and self.rect.top < 328):
                         self.settings.resposta_3 = ''
                         if  self.settings.resposta_3_correta:
@@ -254,7 +262,7 @@ class Player(AnimatedSprite):
                                 self.won_level = True                                 
 
                 
-                if (self.rect.left > 520  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 580):
                     if (self.rect.top >= 170 and self.rect.top < 185):
                         self.settings.resposta_5 = ''
                         if  self.settings.resposta_5_correta:
@@ -296,7 +304,7 @@ class Player(AnimatedSprite):
 
 
 
-                if (self.rect.left > 520  and self.rect.left < 580):
+                if (self.rect.left > 500  and self.rect.left < 580):
                     if (self.rect.top  > 25 and self.rect.top  < 50):
                         self.settings.resposta_7 = ''
                         if  self.settings.resposta_7_correta:

@@ -186,8 +186,6 @@ def response_text(settings, screen, level):
     font.render_to(screen, ( settings.resposta_6_X, settings.resposta_6_Y), settings.resposta_6, settings.font_color)
     font.render_to(screen, ( settings.resposta_7_X, settings.resposta_7_Y), settings.resposta_7, settings.font_color)
     font.render_to(screen, ( settings.resposta_8_X, settings.resposta_8_Y), settings.resposta_8, settings.font_color)
-    
-
 
 def update_game_objects(settings, tile_map):
     tile_map.update()
@@ -240,39 +238,64 @@ def verifica_level(settings):
             settings.resposta_8 = '^'
             settings.resposta_4_correta = True
            
-           # Creating tkinter main window 
+            #region DESAFIO 1_1 
             root = Tk() 
-            root.title("Nível 1") 
-            root.configure(background='#231336')
-            root.geometry("750x450")   
-            root.resizable(width=True, height=True)
-
-            
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
 
             # CONTEÚDO
-            
-            Label(root,  
-                    text = "_______________________________________________________________________________________________" +
-                    "\n\n\n#EXPRESSÕES ARITMÉTICAS \n\n\nExistem quatro operações aritméticas básicas, que você já conhece do seu dia a dia: " +
-                    "\nSoma: representada pelo símbolo +, que pode ser chamado de operador soma"
-                    "\nSubtração: representada pelo símbolo –, também chamado de operador subtração;"
-                    "\nDivisão: representada pelo símbolo /, também chamado de operador divisão;"
-                    "\nMultiplicação: representada pelo símbolo *, também chamado de operador multiplicação."
-                     "\n_______________________________________________________________________________________________" +
-                     "\n\n EXEMPLO: \n\n 22 + 10 = 32 ",
-                    font = ("Arial", 12),  
-                    background = '#231336',  
-                    justify="left",
-                    foreground = "white").grid(column = 15, 
-                                                row = 15) 
+            img = PhotoImage(file="./images/DESAFIO_1_1.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
 
             # Create a Button 
-            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
-                                    command = root.destroy).place(x = 600, y = 350)  
-           
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop()
+
+            #endregion DESAFIO 1_1
+
+            #region DESAFIO 1_2 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_1_2.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
             root.mainloop() 
- 
+            #endregion DESAFIO 1_2 
       
+            #region DESAFIO 1_3
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_1_3.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 1_3
+
         if settings.rodada == 2:
             settings.resposta_1 = '<'
             settings.resposta_2 = '('
@@ -283,39 +306,70 @@ def verifica_level(settings):
             settings.resposta_7 = '>'
             settings.resposta_8 = '<>'
             settings.resposta_7_correta = True
-           
-           # Creating tkinter main window 
+          
+            #region DESAFIO 2_1
             root = Tk() 
-            root.title("Nível 2") 
-            root.configure(background='#231336')
-            root.geometry("750x450")   
-            root.resizable(width=True, height=True)
-
-            
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
 
             # CONTEÚDO
-            
-            Label(root,  
-                    text = "_______________________________________________________________________________________________" +
-                    "\n\n\n#EXPRESSÕES RELACIONAIS \n\n\nOs operadores relacionais são utilizado para comparar valores, o resultado " +
-                    "de uma expressão é um valor\n booleano (verdeiro ou falso).\nEles são representados pelos seguinte próximos simbolos: \n\n "+
-                    "IGUAL ( == )\n DIFERENTE ( != ) \n MAIOR ( > ) \n MENOR ( < ) \n MAIOR OU IGUAL ( >= ) \n MENOR OU IGUAL (<=)" +
-                     "\n_______________________________________________________________________________________________" +
-                     "\n\n EXEMPLO: \n\n 4 é igual (=) 2 x 2 \n 3 é menor (<) que 4 \n 'A' é diferente de 'B' ",
-                    font = ("Arial", 12),  
-                    background = '#231336',  
-                    justify="left",
-                    foreground = "white").grid(column = 15, 
-                                                row = 15) 
+            img = PhotoImage(file="./images/DESAFIO_2_1.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
 
             # Create a Button 
-            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
-                                    command = root.destroy).place(x = 600, y = 350)  
-           
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop()
+
+            #endregion DESAFIO 2_3
+
+            #region DESAFIO 2_2 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_2_2.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
             root.mainloop() 
+            #endregion DESAFIO 1_3
+
+            #region DESAFIO 2_3
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_2_3.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 2_3 
  
-        
+
         if settings.rodada == 3:
+            
+            settings.player_dx = 4
+
             settings.resposta_1 = '4'
             settings.resposta_2 = '5.5'
             settings.resposta_3 = 'A'
@@ -329,6 +383,9 @@ def verifica_level(settings):
         
         
         if settings.rodada == 4:
+            
+            settings.player_dx = 3
+
             settings.resposta_1 = 'TESTE 3'
             settings.resposta_2 = '?'
             settings.resposta_3 = '+'

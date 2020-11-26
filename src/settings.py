@@ -33,7 +33,7 @@ class Settings():
         self.player_jump_velocity = -21 # ALTERADA A VELOCIDADE DO PULO DE -15 PARA -21
         self.player_air_jump_velocity = -8
         self.player_max_air_jumps = 4
-        self.player_dx = 4 # ALTERADA A VELOCIDADE DE 2 PARA 4
+        self.player_dx = 6 # ALTERADA A VELOCIDADE DE 2 PARA 4
 
         # pixels transparentes para deslocar para colisão horizontal (dependente da imagem)
         self.player_sprite_horz_margin = 3

@@ -1,6 +1,6 @@
 """This module is the main entry for the Progmind game"""
 
-from tkinter import *
+from tkinter import *  
 from tkinter import scrolledtext 
 import src.game_functions as gf
 from src.image_resources import ImageResources
@@ -13,32 +13,40 @@ import pygame
 def run_game():
     """Main entry point for Progmind"""
 
-    # Startup pygame object
+
+
+    pygame.init()
+    
+    pygame.mixer.init()
+
+    pygame.mixer.music.load('Jason Farnham No Copyright Music.mp3')
+    pygame.mixer.music.set_volume(0.03)
+
+    pygame.mixer.music.play(-1)
+
+        # Startup pygame object
     root = Tk() 
     root.title("PROGMIND") 
     root.configure(background='#24235c')
-    root.geometry("350x350")   
-    root.resizable(width=True, height=True)
-            
+    root.geometry("600x600")   
+    root.resizable(width=True, height=True)      
 
-            # CONTEÚDO
-            
-    Label(root,  
-        text = "_______________________________________________________________________________________________" +
-        "\n\n\n P R O G M I N D! " +
-        "\n_______________________________________________________________________________________________" ,                  
-        font = ("Arial", 25),  
-        background = '#24235c',  
-        justify="left",
-        foreground = "white").grid(column = 15, 
-        row = 15) 
+    # CONTEÚDO
+
+
+    img = PhotoImage(file="images/progmind-logo.gif")
+    img =  img.subsample(2, 2)
+
+    label_imagem = Label(root, image=img).grid(row=1)
+
+   
     # Create a Button 
-    Button(root, text = 'JOGAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
-    command = root.destroy).place(x = 250, y = 250)  
-    
-    root.mainloop()
+    Button(root, text = 'COMEÇAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+    command = root.destroy,  width = 20).place(x = 200, y = 350)  
 
-    pygame.init()
+    
+
+    root.mainloop()
 
     random.seed()
 
