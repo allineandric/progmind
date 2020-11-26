@@ -74,18 +74,18 @@ def run_game():
     clock = pygame.time.Clock()
     
     while True:
-        # Should make sure each frame spends at least 1/30 seconds in this loop
-        # downside is wasted sleep on fast hardware and slow hardware will lag
-        # but slow hardware will always lag and implementing a time-delta based
-        # loop for this simple game is IMHO overkill.
+        # Deve certificar-se de que cada quadro gasta pelo menos 1/30 segundos neste loop
+        # desvantagem é o sono desperdiçado em hardware rápido e hardware lento vai atrasar
+        # mas o hardware lento sempre vai atrasar e implementar um baseado em time delta
+        # loop para este jogo simples é um exagero IMHO.
         clock.tick(30)
 
-        # Process system events (key-presses, joystick, etc)
+        # Processar eventos do sistema (pressionamentos de tecla, joystick, etc)
         gf.check_events(settings, screen, tile_map)
 
     
-        # Update the game (this will update all sub-object and render them to the screen)
+        # Atualize o PROGMIND (isso atualizará todos os subobjetos e os renderizará na tela)
         gf.update_screen(settings, screen, tile_map, Settings.level_number)
     
-# Invokes the function above when the script is run
+# Invoca a função acima quando o script é executado
 run_game()

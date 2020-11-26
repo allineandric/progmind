@@ -265,7 +265,7 @@ def update_screen(settings, screen, tile_map, level):
 def verifica_level(settings):
     if settings.desafio_concluido:
         settings.rodada += 1
-        limpar_todas_respostas(settings)
+        limpar_todas_respostas(settings)        
 
         #LEVEL 1     
         if settings.rodada == 1:
@@ -405,7 +405,6 @@ def verifica_level(settings):
 
             root.mainloop() 
             #endregion DESAFIO 2_3 
- 
 
         if settings.rodada == 3:
             
@@ -420,34 +419,66 @@ def verifica_level(settings):
             settings.resposta_7 = 'D'
             settings.resposta_8 = 'C'
             settings.resposta_1_correta = True 
-           # Creating tkinter main window 
+            settings.resposta_2_correta = True 
+
+             #region DESAFIO 3_1 
             root = Tk() 
-            root.title("Nível 3") 
-            root.configure(background='#231336')
-            root.geometry("750x450")   
-            root.resizable(width=True, height=True)
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
             # CONTEÚDO
-            Label(root,  
-                text = "_______________________________________________________________________________________________" +
-                "\n\n\n#TIPOS DE DADOS \n\n\nNa ciência da computação existem quatro tipos primitivos de dados: inteiro, real, cadeia de caracteres e lógico (ou booleano)." +
-                "\nSendo eles: "+
-                "\n- inteiro: define variáveis numéricas do tipo inteiro, ou seja, sem casas decimais."
-                "\n- real: define variáveis numéricas do tipo real, ou seja, com casas decimais."
-                "\n- caractere: define variáveis do tipo string, ou seja, cadeia de caracteres."
-                "\n- logico: define variáveis do tipo booleano, ou seja, com valor VERDADEIRO(V) ou FALSO(F)."
-                    "\n_______________________________________________________________________________________________" +
-                    "\n\n EXEMPLO: \n\n inteiro: 12 \n real: 7,5 \n caractere: 'abelha' \n logico: V",
-                font = ("Arial", 12),  
-                background = '#231336',  
-                justify="left",
-                foreground = "white").grid(column = 15, 
-                    row = 15) 
+            img = PhotoImage(file="./images/DESAFIO_3_1.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
             # Create a Button 
-            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
-                command = root.destroy).place(x = 600, y = 350)  
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop()
+
+            #endregion DESAFIO 3_1
+
+            #region DESAFIO 3_2 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_3_2.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
             root.mainloop() 
-        
-        #LEVEL 4
+            #endregion DESAFIO 3_2 
+      
+            #region DESAFIO 3_3
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_3_3.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 3_3
+
         if settings.rodada == 4:
             
             settings.player_dx = 3
@@ -461,35 +492,74 @@ def verifica_level(settings):
             settings.resposta_7 = '>'   
             settings.resposta_8 = '%'
             settings.resposta_3_correta = True   
+            settings.resposta_2_correta = True  
             # Creating tkinter main window 
+
+             #region DESAFIO 4_1 
             root = Tk() 
-            root.title("Nível 5") 
-            root.configure(background='#231336')
-            root.geometry("750x450")   
-            root.resizable(width=True, height=True)
-            Label(root,  
-                text = "_______________________________________________________________________________________________" +
-                "\n\n\n#ESTRUTURA DE REPETIÇÃO \n\n\nDentro da lógica de programação é uma estrutura que permite executar mais de uma vez o mesmo comando" +
-                "\nou conjunto de comandos, de acordo com uma condição ou com um contador."+
-		        "\nExistem 3 estruturas de repetição básica para praticamente todas as linguagens de programação:"+
-                "\nWhile (enquanto) - Repete um bloco de código enquanto uma condição permanecer verdadeira."
-                "\nDo… While (faça enquanto) - Muito parecido com o while, porém a condição é verificada após"
-                "\nexecutar o bloco de comandos."
-                "\nFor (para) - Utilizado para executar um conjunto de comandos executado por um número X de"
-                "\nvezes de acordo com o valor de uma variável",
-                         font = ("Arial", 12),  
-                background = '#231336',  
-                justify="left",
-                foreground = "white").grid(column = 15, 
-                    row = 15) 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_4_1.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
             # Create a Button 
-            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
-                command = root.destroy).place(x = 600, y = 350)  
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
             root.mainloop()
-            
+
+            #endregion DESAFIO 4_1
+
+            #region DESAFIO 4_2 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_4_2.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 4_2 
+      
+            #region DESAFIO 4_3
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_4_3.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 3_3
+
             settings.desafio_concluido = False
          #LEVEL 5
+        
         if settings.rodada == 5:
+            
+            settings.player_dx = 3
+
             settings.resposta_1 = 'TESTE 3'
             settings.resposta_2 = '?'
             settings.resposta_3 = '+'
@@ -499,34 +569,212 @@ def verifica_level(settings):
             settings.resposta_7 = '>'   
             settings.resposta_8 = '%'
             settings.resposta_3_correta = True   
+            settings.resposta_2_correta = True  
             # Creating tkinter main window 
+
+             #region DESAFIO 5_1 
             root = Tk() 
-            root.title("Nível 5") 
-            root.configure(background='#231336')
-            root.geometry("750x450")   
-            root.resizable(width=True, height=True)
-            Label(root,  
-                text = "_______________________________________________________________________________________________" +
-                "\n\n\n#ESTRUTURA DE REPETIÇÃO \n\n\nDentro da lógica de programação é uma estrutura que permite executar mais de uma vez o mesmo comando" +
-                "\nou conjunto de comandos, de acordo com uma condição ou com um contador."+
-		        "\nExistem 3 estruturas de repetição básica para praticamente todas as linguagens de programação:"+
-                "\nWhile (enquanto) - Repete um bloco de código enquanto uma condição permanecer verdadeira."
-                "\nDo… While (faça enquanto) - Muito parecido com o while, porém a condição é verificada após"
-                "\nexecutar o bloco de comandos."
-                "\nFor (para) - Utilizado para executar um conjunto de comandos executado por um número X de"
-                "\nvezes de acordo com o valor de uma variável",
-                         font = ("Arial", 12),  
-                background = '#231336',  
-                justify="left",
-                foreground = "white").grid(column = 15, 
-                    row = 15) 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_5_1.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
             # Create a Button 
-            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#231336', bg='#ffffff',
-                command = root.destroy).place(x = 600, y = 350)  
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
             root.mainloop()
-            
-        settings.desafio_concluido = False
+
+            #endregion DESAFIO 5_1
+
+            #region DESAFIO 5_2 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_5_2.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 5_2 
+      
+            #region DESAFIO 5_3
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_5_3.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 250, y = 520)  
+
+            root.mainloop() 
+            #endregion DESAFIO 5_3
+
+            settings.desafio_concluido = False
         
+           #LEVEL 1     
+       
+        if settings.rodada == 6:
+           #region DESAFIO 6_1 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_1.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 450, y = 620)  
+
+            root.mainloop()
+
+            #endregion DESAFIO 6_1
+
+            #region DESAFIO 6_2 
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_2.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 450, y = 620)  
+
+            root.mainloop() 
+            #endregion DESAFIO 6_2 
+      
+            #region DESAFIO 6_3
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_3.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 450, y = 620)  
+
+            root.mainloop() 
+            #endregion DESAFIO 6_3
+
+            
+            #region DESAFIO 6_4
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_4.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 450, y = 620)  
+
+            root.mainloop() 
+            #endregion DESAFIO 6_4
+
+
+            #region DESAFIO 6_5
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_5.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 180, y = 620)  
+
+            root.mainloop() 
+            #endregion DESAFIO 6_5
+
+            
+            #region DESAFIO 6_6
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_6.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'CONTINUAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 450, y = 620)  
+
+            root.mainloop() 
+            #endregion DESAFIO 6_6
+
+            
+            #region DESAFIO 6_7
+            root = Tk() 
+            root.title("PROGMIND") 
+            root.configure(background='#24235c')
+            root.geometry("660x660")   
+            root.resizable(width=True, height=True)      
+
+            # CONTEÚDO
+            img = PhotoImage(file="./images/DESAFIO_6_7.gif")
+            img =  img.subsample(3, 3)
+            label_imagem = Label(root, image=img).grid(row=1)
+
+            # Create a Button 
+            Button(root, text = 'FECHAR', bd = '2', font = ("Arial", 12), fg='#24235c', bg='#ffffff',
+            command = root.destroy,  width = 20).place(x = 460, y = 620)  
+            
+
+            root.mainloop() 
+            sys.exit()
+            #endregion DESAFIO 6_7
+        settings.desafio_concluido = False     
 def limpar_todas_respostas(settings):    
     settings.contador_nivel = 0
     settings.resposta_1_correta = False
