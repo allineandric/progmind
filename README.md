@@ -5,7 +5,7 @@
 
 *Demo*
 
-![](http://i.imgur.com/6IYe49H.gif)
+![](https://imgur.com/hdLDxOi.gif)
 
 ## Running the Game
 You will need the pygame and python 3.6 installed, as well as the images from my repository (e.g. .\\images\\*) wherever you copy the scripts.  Cloning the repository is the easiest method, or download the whole thing.  I don't have a lot of "extra" stuff in the repo
