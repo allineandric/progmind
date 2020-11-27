@@ -28,8 +28,8 @@ def check_keydown_events(settings, event, screen, tile_map):
     if event.key == pygame.K_ESCAPE:
         sys.exit()
 
-    if event.key == pygame.K_a:
-        generate_new_random_blob(settings, screen, settings.image_res.enemy_blob_images, tile_map)
+    # if event.key == pygame.K_a:
+    #     generate_new_random_blob(settings, screen, settings.image_res.enemy_blob_images, tile_map)
         
     if event.key == pygame.K_r:
         reset_game(tile_map)
@@ -51,13 +51,13 @@ def check_keydown_events(settings, event, screen, tile_map):
             if player.falling == False:
                 player.dy += 50
         
-    if event.key == pygame.K_F9:
-        if settings.fullscreen == True:
-            settings.fullscreen = False
-            pygame.display.set_mode((800, 600))
-        else:
-            settings.fullscreen = True
-            pygame.display.set_mode((800, 600), pygame.FULLSCREEN)
+    # if event.key == pygame.K_F9:
+    #     if settings.fullscreen == True:
+    #         settings.fullscreen = False
+    #         pygame.display.set_mode((800, 600))
+    #     else:
+    #         settings.fullscreen = True
+    #         pygame.display.set_mode((800, 600), pygame.FULLSCREEN)
 
 def check_keyup_events(settings, event, screen, tile_map):
     player = tile_map.player
@@ -121,9 +121,13 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
+        font.render_to(screen, (800,y), "ESC para sair", settings.font_color)
         y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        font.render_to(screen, (800,y), "'r' para reiniciar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -143,9 +147,13 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
+        font.render_to(screen, (800,y), "ESC para sair", settings.font_color)
         y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        font.render_to(screen, (800,y), "'r' para reiniciar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -165,9 +173,13 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
+        font.render_to(screen, (800,y), "ESC para sair", settings.font_color)
         y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        font.render_to(screen, (800,y), "'r' para reiniciar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -193,9 +205,13 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
-        font.render_to(screen, (800,y), " 3 desafios.", settings.font_color)
+        font.render_to(screen, (800,y), "ESC para sair", settings.font_color)
         y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        font.render_to(screen, (800,y), "'r' para reiniciar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -223,9 +239,13 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (10,y), "DESAFIO", settings.font_color)
         y = screen.get_rect().bottom - 158
         y -= 110
-        font.render_to(screen, (800,y), "1 Desafio", settings.font_color)
+        font.render_to(screen, (800,y), "ESC para sair", settings.font_color)
         y -= 20
-        font.render_to(screen, (800,y), "*Para passar de level, é necessário cumprir no mínimo", settings.font_color)
+        font.render_to(screen, (800,y), "'r' para reiniciar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
