@@ -128,6 +128,8 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
         y -= 20
         font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "(Fuja dos inimigos verdes) ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -154,6 +156,8 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
         y -= 20
         font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "(Fuja dos inimigos verdes) ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -180,6 +184,8 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
         y -= 20
         font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "(Fuja dos inimigos verdes) ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -190,7 +196,7 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
     #LEVEL 4
-    if settings.rodada == 4:
+    if settings.rodada == 5:
         y = screen.get_rect().bottom - 300
         font.render_to(screen, (10,y), "print 'Maior que Zero.'", settings.font_color)
         y -= 35
@@ -212,6 +218,8 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
         y -= 20
         font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "(Fuja dos inimigos verdes) ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -222,7 +230,7 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "Total de desafios: 5", settings.font_color)
 
     #LEVEL 5
-    if settings.rodada == 5:
+    if settings.rodada == 4:
         y = screen.get_rect().bottom - 300
         font.render_to(screen, (10,y), "}", settings.font_color)
         y -= 35
@@ -246,6 +254,8 @@ def blit_help_text(settings, screen, level):
         font.render_to(screen, (800,y), "ESPAÇO para pular ... pode pular uma vez no ar", settings.font_color)
         y -= 20
         font.render_to(screen, (800,y), "Setas ESQUERDA/DIREITA para caminhar ", settings.font_color)
+        y -= 20
+        font.render_to(screen, (800,y), "(Fuja dos inimigos verdes) ", settings.font_color)
         y -= 50
         font.render_to(screen, (800,y), "_________________________________________________", settings.font_color)
         y -= 30
@@ -522,15 +532,17 @@ def verifica_level(settings):
             
             settings.player_dx = 3
 
-            settings.resposta_1 = '4'
-            settings.resposta_2 = 'composta'
-            settings.resposta_3 = '='
-            settings.resposta_4 = 'true'
-            settings.resposta_5 = 'simples'
-            settings.resposta_6 = '>'
-            settings.resposta_7 = 'D'
-            settings.resposta_8 = 'switch'
-            settings.resposta_5_correta = True
+            
+
+            settings.resposta_1 = 'para'
+            settings.resposta_2 = 'até'
+            settings.resposta_3 = 'V'
+            settings.resposta_4 = '1'
+            settings.resposta_5 = 'enquanto'
+            settings.resposta_6 = '6'
+            settings.resposta_7 = 'ao fim'
+            settings.resposta_8 = 'int'
+            settings.resposta_5_correta = True 
             # Creating tkinter main window 
 
              #region DESAFIO 4_1 
@@ -598,15 +610,16 @@ def verifica_level(settings):
             
             settings.player_dx = 3
 
-            settings.resposta_1 = 'para'
-            settings.resposta_2 = 'até'
-            settings.resposta_3 = 'V'
-            settings.resposta_4 = '1'
-            settings.resposta_5 = 'enquanto'
-            settings.resposta_6 = '6'
-            settings.resposta_7 = 'ao fim'
-            settings.resposta_8 = 'int'
-            settings.resposta_5_correta = True 
+
+            settings.resposta_1 = '4'
+            settings.resposta_2 = 'composta'
+            settings.resposta_3 = '='
+            settings.resposta_4 = 'true'
+            settings.resposta_5 = 'simples'
+            settings.resposta_6 = '>'
+            settings.resposta_7 = 'D'
+            settings.resposta_8 = 'switch'
+            settings.resposta_5_correta = True
             # Creating tkinter main window 
 
              #region DESAFIO 5_1 
@@ -812,6 +825,7 @@ def verifica_level(settings):
             sys.exit()
             #endregion DESAFIO 6_7
         settings.desafio_concluido = False     
+
 def limpar_todas_respostas(settings):    
     settings.contador_nivel = 0
     settings.resposta_1_correta = False

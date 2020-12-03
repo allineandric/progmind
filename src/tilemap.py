@@ -210,7 +210,7 @@ class Tilemap():
         if self.settings.rodada > 2:
             self.new_enemy_counter += self.settings.rodada
         elif(self.settings.rodada > 1):
-            self.new_enemy_counter += self.settings.rodada
+            self.new_enemy_counter = self.settings.rodada
 
         if self.new_enemy_counter >= self.settings.enemy_generation_rate:
             self.new_enemy_counter = 0
